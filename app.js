@@ -13,6 +13,25 @@ const DIFFICULTIES = {
   7: "Yonder"
 };
 
+const TYPE_ORDER = [
+  "구현",
+  "시뮬레이션",
+  "완전탐색",
+  "그리디",
+  "정렬",
+  "카운팅",
+  "문자열",
+  "수학",
+  "누적합",
+  "차이 배열",
+  "자료구조",
+  "그래프",
+  "격자",
+  "기하",
+  "구성",
+  "애드혹"
+];
+
 const state = {
   problems: [],
   filtered: [],
@@ -185,7 +204,7 @@ function buildControls() {
     Object.entries(DIFFICULTIES).map(([level, name]) => ({ value: level, label: `Lv.${level} ${name}` }))
   );
 
-  const types = unique(state.problems.flatMap((problem) => problem.types));
+  const types = sortTypes(unique(state.problems.flatMap((problem) => problem.types)));
   els.typeFilters.innerHTML = types.map((type) => (
     `<button class="chip" type="button" data-type="${escapeAttr(type)}">${escapeHtml(type)}</button>`
   )).join("");
@@ -427,6 +446,15 @@ function readJson(key, fallback) {
 
 function unique(values) {
   return [...new Set(values)].sort((a, b) => String(a).localeCompare(String(b), "ko", { numeric: true }));
+}
+
+function sortTypes(types) {
+  const order = new Map(TYPE_ORDER.map((type, index) => [type, index]));
+  return [...types].sort((a, b) => {
+    const rankA = order.has(a) ? order.get(a) : Number.MAX_SAFE_INTEGER;
+    const rankB = order.has(b) ? order.get(b) : Number.MAX_SAFE_INTEGER;
+    return rankA - rankB || a.localeCompare(b, "ko", { numeric: true });
+  });
 }
 
 function setupStarMap() {
