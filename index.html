@@ -27,16 +27,11 @@
         </div>
       </a>
 
-      <section class="top-stats" aria-label="문제 통계">
-        <div><span>문제</span><strong id="total-count">0</strong></div>
-        <div><span>표시</span><strong id="visible-count">0</strong></div>
-        <div><span>완료</span><strong id="completed-count">0</strong></div>
-        <div><span>유형</span><strong id="selected-type-count">0</strong></div>
-      </section>
+      <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">필터 열기</button>
     </header>
 
-    <main class="app-shell">
-      <aside class="filter-panel" aria-label="필터">
+    <main class="app-shell" id="app-shell">
+      <aside class="filter-panel" id="filter-panel" aria-label="필터" hidden>
         <div class="panel-top">
           <h2>필터</h2>
           <button id="reset-filters" type="button">초기화</button>

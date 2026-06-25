@@ -51,16 +51,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Failed to load problem data:", error);
     els.statusText.textContent = "문제 데이터 로딩 실패";
     els.loadError.hidden = false;
-    updateStats();
   }
 });
 
 function bindElements() {
   [
-    "total-count",
-    "visible-count",
-    "completed-count",
-    "selected-type-count",
+    "app-shell",
+    "filter-panel",
+    "filter-toggle",
     "search-input",
     "type-search",
     "season-filter",
@@ -83,6 +81,10 @@ function bindElements() {
 }
 
 function bindEvents() {
+  els.filterToggle.addEventListener("click", () => {
+    setFilterPanelOpen(els.filterPanel.hidden);
+  });
+
   els.searchInput.addEventListener("input", (event) => {
     state.filters.search = event.target.value.trim().toLowerCase();
     applyFilters();
@@ -227,7 +229,6 @@ function applyFilters() {
   updateFilterUi();
   updateTypeChipVisibility();
   renderActiveFilters();
-  updateStats();
 }
 
 function searchableText(problem) {
@@ -327,13 +328,6 @@ function updateFilterUi() {
   });
 }
 
-function updateStats() {
-  els.totalCount.textContent = state.problems.length;
-  els.visibleCount.textContent = state.filtered.length;
-  els.completedCount.textContent = state.completed.size;
-  els.selectedTypeCount.textContent = state.selectedTypes.size;
-}
-
 function renderActiveFilters() {
   const chips = [];
   if (state.filters.search) chips.push(activeChip(`검색 ${state.filters.search}`, "search"));
@@ -414,6 +408,13 @@ function selectedText(select) {
 
 function saveCompleted() {
   localStorage.setItem(STORAGE_KEYS.completed, JSON.stringify([...state.completed]));
+}
+
+function setFilterPanelOpen(open) {
+  els.filterPanel.hidden = !open;
+  els.appShell.classList.toggle("has-open-filter", open);
+  els.filterToggle.setAttribute("aria-expanded", String(open));
+  els.filterToggle.textContent = open ? "필터 닫기" : "필터 열기";
 }
 
 function readJson(key, fallback) {

@@ -229,53 +229,32 @@ h1 {
   white-space: nowrap;
 }
 
-.top-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 78px);
-  gap: 8px;
-}
-
-.top-stats div {
-  position: relative;
-  overflow: hidden;
-  min-height: 52px;
-  padding: 8px 10px;
+.filter-toggle {
+  justify-self: end;
+  min-height: 38px;
+  padding: 0 14px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 999px;
   background:
-    linear-gradient(135deg, rgba(154, 218, 255, 0.085), rgba(255, 255, 255, 0.025)),
+    linear-gradient(135deg, rgba(154, 218, 255, 0.12), rgba(255, 255, 255, 0.035)),
     var(--panel);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 900;
+  white-space: nowrap;
   box-shadow: var(--shadow);
-}
-
-.top-stats div::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 3px;
-  background: linear-gradient(180deg, var(--level-4), var(--level-5));
-}
-
-.top-stats span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 850;
-}
-
-.top-stats strong {
-  display: block;
-  margin-top: 2px;
-  font-size: 1.35rem;
-  line-height: 1;
 }
 
 .app-shell {
   display: grid;
-  grid-template-columns: 330px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   align-items: start;
   padding-bottom: 28px;
+}
+
+.app-shell.has-open-filter {
+  grid-template-columns: 330px minmax(0, 1fr);
 }
 
 .filter-panel,
@@ -424,7 +403,8 @@ textarea:focus {
 .active-filter:hover,
 .difficulty-chip:hover,
 .difficulty-chip.is-active,
-.panel-top button:hover {
+.panel-top button:hover,
+.filter-toggle:hover {
   border-color: color-mix(in srgb, var(--accent) 62%, var(--text));
   background: color-mix(in srgb, var(--accent) 14%, var(--panel-solid));
 }
@@ -758,13 +738,8 @@ footer {
     grid-template-columns: 1fr auto;
   }
 
-  .top-stats {
-    grid-column: 1 / -1;
-    order: 3;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .app-shell {
+  .app-shell,
+  .app-shell.has-open-filter {
     grid-template-columns: 1fr;
   }
 
@@ -820,13 +795,8 @@ footer {
     font-size: 1.08rem;
   }
 
-  .top-stats,
   .filter-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .top-stats div {
-    min-height: 48px;
   }
 
   .filter-panel,
