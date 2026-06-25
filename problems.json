@@ -1,0 +1,1952 @@
+[
+  {
+    "id": "2018-dec-bronze-1",
+    "season": "2018-19",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Mixing Milk",
+    "types": [
+      "시뮬레이션",
+      "구현",
+      "상태 업데이트",
+      "용량 계산"
+    ],
+    "difficultyLevel": 1,
+    "difficultyName": "Meteor",
+    "practicePoints": [
+      "용량과 현재량 업데이트",
+      "정해진 횟수만큼 반복",
+      "min을 이용한 이동량 계산"
+    ],
+    "recommendedOrder": 1,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4090",
+    "url": "https://jungol.co.kr/problem/4090?cursor=IjM1IiwzMSwxMQ=="
+  },
+  {
+    "id": "2018-dec-bronze-2",
+    "season": "2018-19",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "The Bucket List",
+    "types": [
+      "구간 처리",
+      "카운팅",
+      "차이 배열",
+      "타임라인 스캔"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "시간 구간별 사용량 세기",
+      "동시에 필요한 버킷 수 계산",
+      "작은 범위 배열 활용"
+    ],
+    "recommendedOrder": 16,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4091",
+    "url": "https://jungol.co.kr/problem/4091?cursor=IjM1IiwzMSwxMg=="
+  },
+  {
+    "id": "2018-dec-bronze-3",
+    "season": "2018-19",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Back and Forth",
+    "types": [
+      "완전탐색",
+      "집합/맵",
+      "시뮬레이션",
+      "상태 복사"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "4일 이동을 전부 탐색",
+      "가능한 최종 용량 집합 만들기",
+      "상태 복사와 복구 실수 줄이기"
+    ],
+    "recommendedOrder": 41,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4092",
+    "url": "https://jungol.co.kr/problem/4092?cursor=IjM1IiwzMSwxMw=="
+  },
+  {
+    "id": "2019-jan-bronze-1",
+    "season": "2018-19",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Shell Game",
+    "types": [
+      "시뮬레이션",
+      "구현",
+      "위치 추적",
+      "스왑"
+    ],
+    "difficultyLevel": 1,
+    "difficultyName": "Meteor",
+    "practicePoints": [
+      "세 컵의 위치 갱신",
+      "가능한 시작 위치 모두 시험",
+      "스왑 연산 정확히 구현"
+    ],
+    "recommendedOrder": 2,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4102",
+    "url": "https://jungol.co.kr/problem/4102?cursor=IjM1IiwzMCw5"
+  },
+  {
+    "id": "2019-jan-bronze-2",
+    "season": "2018-19",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Sleepy Cow Sorting",
+    "types": [
+      "관찰",
+      "정렬",
+      "그리디",
+      "suffix 관찰"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "뒤쪽 정렬된 suffix 찾기",
+      "움직여야 하는 prefix 길이 계산",
+      "인덱스 기준 관찰 연습"
+    ],
+    "recommendedOrder": 17,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4103",
+    "url": "https://jungol.co.kr/problem/4103?cursor=IjM1IiwzMCwxMA=="
+  },
+  {
+    "id": "2019-jan-bronze-3",
+    "season": "2018-19",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Guess the Animal",
+    "types": [
+      "완전탐색",
+      "집합/맵",
+      "문자열",
+      "교집합"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "동물 쌍마다 공통 특징 세기",
+      "문자열 집합 비교",
+      "정답에 1을 더하는 이유 이해"
+    ],
+    "recommendedOrder": 18,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4104",
+    "url": "https://jungol.co.kr/problem/4104?cursor=IjM1IiwzMCwxMQ=="
+  },
+  {
+    "id": "2019-feb-bronze-1",
+    "season": "2018-19",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Sleepy Cow Herding",
+    "types": [
+      "정렬",
+      "케이스 분석",
+      "관찰",
+      "간격 분석"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "세 위치 정렬",
+      "최소 이동의 특수 케이스 처리",
+      "최대 이동은 큰 간격 기준으로 계산"
+    ],
+    "recommendedOrder": 27,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4114",
+    "url": "https://jungol.co.kr/problem/4114?cursor=IjM1IiwyOSw5"
+  },
+  {
+    "id": "2019-feb-bronze-2",
+    "season": "2018-19",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "The Great Revegetation",
+    "types": [
+      "그리디",
+      "그래프 기초",
+      "구성",
+      "인접 제약"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "앞에서부터 가능한 가장 작은 씨앗 선택",
+      "인접 제약 확인",
+      "그래프 입력을 배열로 저장"
+    ],
+    "recommendedOrder": 28,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4115",
+    "url": "https://jungol.co.kr/problem/4115?cursor=IjM1IiwyOSwxMA=="
+  },
+  {
+    "id": "2019-feb-bronze-3",
+    "season": "2018-19",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Measuring Traffic",
+    "types": [
+      "구간 처리",
+      "시뮬레이션",
+      "케이스 분석",
+      "범위 갱신",
+      "역방향 스캔"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "on/off/none 구간의 범위 갱신",
+      "앞뒤 두 번 스캔",
+      "가능한 교통량 범위 유지"
+    ],
+    "recommendedOrder": 42,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4116",
+    "url": "https://jungol.co.kr/problem/4116?cursor=IjM1IiwyOSwxMQ=="
+  },
+  {
+    "id": "2019-dec-bronze-1",
+    "season": "2019-20",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Cow Gymnastics",
+    "types": [
+      "완전탐색",
+      "카운팅",
+      "모든 쌍 비교",
+      "순위 비교"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "모든 소 쌍을 확인",
+      "모든 세션에서 순서가 유지되는지 검사",
+      "이중/삼중 반복문 구조 연습"
+    ],
+    "recommendedOrder": 19,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5381",
+    "url": "https://jungol.co.kr/problem/5381?cursor=IjM1IiwyNyw5"
+  },
+  {
+    "id": "2019-dec-bronze-2",
+    "season": "2019-20",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Where Am I?",
+    "types": [
+      "문자열",
+      "완전탐색",
+      "집합/맵",
+      "부분 문자열"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "길이 K별 부분 문자열 비교",
+      "중복 여부를 set으로 확인",
+      "최소 K를 찾는 순차 탐색"
+    ],
+    "recommendedOrder": 20,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5382",
+    "url": "https://jungol.co.kr/problem/5382?cursor=IjM1IiwyNywxMA=="
+  },
+  {
+    "id": "2019-dec-bronze-3",
+    "season": "2019-20",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Livestock Lineup",
+    "types": [
+      "순열",
+      "완전탐색",
+      "문자열",
+      "사전순"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "8마리 순열 전부 확인",
+      "인접 조건 검증",
+      "사전순 첫 정답 유지"
+    ],
+    "recommendedOrder": 43,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5383",
+    "url": "https://jungol.co.kr/problem/5383?cursor=IjM1IiwyNywxMQ=="
+  },
+  {
+    "id": "2020-jan-bronze-1",
+    "season": "2019-20",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Word Processor",
+    "types": [
+      "문자열",
+      "구현",
+      "시뮬레이션",
+      "줄바꿈 처리"
+    ],
+    "difficultyLevel": 1,
+    "difficultyName": "Meteor",
+    "practicePoints": [
+      "현재 줄 길이 관리",
+      "공백 출력 조건 처리",
+      "문제 지문 그대로 구현"
+    ],
+    "recommendedOrder": 3,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4150",
+    "url": "https://jungol.co.kr/problem/4150?cursor=IjM1IiwyNiw5"
+  },
+  {
+    "id": "2020-jan-bronze-2",
+    "season": "2019-20",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Photoshoot",
+    "types": [
+      "구성",
+      "순열",
+      "완전탐색",
+      "복원"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "첫 값을 가정하고 전체 배열 복원",
+      "1부터 N까지 중복 없이 사용 확인",
+      "가능한 순열 조건 검증"
+    ],
+    "recommendedOrder": 29,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4151",
+    "url": "https://jungol.co.kr/problem/4151?cursor=IjM1IiwyNiwxMA=="
+  },
+  {
+    "id": "2020-jan-bronze-3",
+    "season": "2019-20",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Race",
+    "types": [
+      "시뮬레이션",
+      "수학",
+      "그리디",
+      "속도 변화"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "속도를 1씩 늘리며 거리 누적",
+      "최소 시간 조건 확인",
+      "브레이크 구간을 고려한 시뮬레이션"
+    ],
+    "recommendedOrder": 44,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4152",
+    "url": "https://jungol.co.kr/problem/4152?cursor=IjM1IiwyNiwxMQ=="
+  },
+  {
+    "id": "2020-feb-bronze-1",
+    "season": "2019-20",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Triangles",
+    "types": [
+      "좌표",
+      "완전탐색",
+      "기하 기초",
+      "면적 계산"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "점 세 개를 모두 선택",
+      "수직/수평 변 조건 확인",
+      "면적 두 배 값 계산"
+    ],
+    "recommendedOrder": 30,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4162",
+    "url": "https://jungol.co.kr/problem/4162?cursor=IjM1IiwyNSw5"
+  },
+  {
+    "id": "2020-feb-bronze-2",
+    "season": "2019-20",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Mad Scientist",
+    "types": [
+      "문자열",
+      "그리디",
+      "구간 처리",
+      "연속 구간"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "다른 구간의 시작점 세기",
+      "연속된 차이 구간 묶기",
+      "문자열 비교 실수 줄이기"
+    ],
+    "recommendedOrder": 21,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4163",
+    "url": "https://jungol.co.kr/problem/4163?cursor=IjM1IiwyNSwxMA=="
+  },
+  {
+    "id": "2020-feb-bronze-3",
+    "season": "2019-20",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Swapity Swap",
+    "types": [
+      "시뮬레이션",
+      "주기성",
+      "배열",
+      "구간 뒤집기",
+      "cycle 탐지"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "구간 뒤집기",
+      "반복 시뮬레이션 최적화",
+      "cycle 발견"
+    ],
+    "recommendedOrder": 55,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "4164",
+    "url": "https://jungol.co.kr/problem/4164?cursor=IjM1IiwyNSwxMQ=="
+  },
+  {
+    "id": "2020-dec-bronze-1",
+    "season": "2020-21",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Do You Know Your ABCs?",
+    "types": [
+      "수학",
+      "정렬",
+      "구현",
+      "합 복원"
+    ],
+    "difficultyLevel": 1,
+    "difficultyName": "Meteor",
+    "practicePoints": [
+      "7개 수 정렬",
+      "A, B, C 위치 관찰",
+      "합 조건으로 C 복원"
+    ],
+    "recommendedOrder": 4,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5375",
+    "url": "https://jungol.co.kr/problem/5375?cursor=IjM1IiwyMyw5"
+  },
+  {
+    "id": "2020-dec-bronze-2",
+    "season": "2020-21",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Daisy Chains",
+    "types": [
+      "완전탐색",
+      "누적합",
+      "카운팅",
+      "평균 판정"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "모든 연속 구간 확인",
+      "평균이 구간 안에 있는지 검사",
+      "작은 N에서 O(N^3) 감각 익히기"
+    ],
+    "recommendedOrder": 22,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5376",
+    "url": "https://jungol.co.kr/problem/5376?cursor=IjM1IiwyMywxMA=="
+  },
+  {
+    "id": "2020-dec-bronze-3",
+    "season": "2020-21",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Stuck in a Rut",
+    "types": [
+      "좌표",
+      "시뮬레이션",
+      "케이스 분석",
+      "교차 판정",
+      "시간 비교"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "소 두 마리의 교차 가능성 판정",
+      "멈추는 시간 비교",
+      "사건 순서에 따른 영향 처리"
+    ],
+    "recommendedOrder": 62,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5377",
+    "url": "https://jungol.co.kr/problem/5377?cursor=IjM1IiwyMywxMQ=="
+  },
+  {
+    "id": "2021-jan-bronze-1",
+    "season": "2020-21",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Uddered but not Herd",
+    "types": [
+      "문자열",
+      "구현",
+      "시뮬레이션",
+      "인덱싱"
+    ],
+    "difficultyLevel": 1,
+    "difficultyName": "Meteor",
+    "practicePoints": [
+      "알파벳 순서 위치 저장",
+      "이전 위치보다 앞이면 새 노래 시작",
+      "문자열 한 번 스캔"
+    ],
+    "recommendedOrder": 10,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5371",
+    "url": "https://jungol.co.kr/problem/5371?cursor=IjM1IiwyMiw5"
+  },
+  {
+    "id": "2021-jan-bronze-2",
+    "season": "2020-21",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Even More Odd Photos",
+    "types": [
+      "그리디",
+      "카운팅",
+      "수학",
+      "홀짝"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "홀수와 짝수 개수 세기",
+      "그룹 패턴 조건 분석",
+      "남는 홀수 처리 케이스 분리"
+    ],
+    "recommendedOrder": 45,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5372",
+    "url": "https://jungol.co.kr/problem/5372?cursor=IjM1IiwyMiwxMA=="
+  },
+  {
+    "id": "2021-jan-bronze-3",
+    "season": "2020-21",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Just Stalling",
+    "types": [
+      "정렬",
+      "그리디",
+      "카운팅",
+      "곱셈 원리"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "키 기준 정렬",
+      "각 소가 들어갈 수 있는 마구간 수 계산",
+      "곱셈 원리 적용"
+    ],
+    "recommendedOrder": 31,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5373",
+    "url": "https://jungol.co.kr/problem/5373?cursor=IjM1IiwyMiwxMQ=="
+  },
+  {
+    "id": "2021-feb-bronze-1",
+    "season": "2020-21",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Year of the Cow",
+    "types": [
+      "집합/맵",
+      "시뮬레이션",
+      "문자열",
+      "관계 그래프"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "12간지 순서 인덱싱",
+      "기준 소로부터 상대 연도 계산",
+      "문장 입력 파싱"
+    ],
+    "recommendedOrder": 32,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5361",
+    "url": "https://jungol.co.kr/problem/5361?cursor=IjM1IiwyMSw5"
+  },
+  {
+    "id": "2021-feb-bronze-2",
+    "season": "2020-21",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Comfortable Cows",
+    "types": [
+      "격자",
+      "시뮬레이션",
+      "카운팅",
+      "이웃 카운팅"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "상하좌우 이웃 수 유지",
+      "추가 전후 영향받는 칸만 검사",
+      "좌표 범위 여유 있게 잡기"
+    ],
+    "recommendedOrder": 56,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5362",
+    "url": "https://jungol.co.kr/problem/5362?cursor=IjM1IiwyMSwxMA=="
+  },
+  {
+    "id": "2021-feb-bronze-3",
+    "season": "2020-21",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Clockwise Fence",
+    "types": [
+      "문자열",
+      "기하 기초",
+      "시뮬레이션",
+      "방향 회전"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "회전 방향 누적",
+      "경로의 방향성을 문자로 판단",
+      "여러 테스트 케이스 처리"
+    ],
+    "recommendedOrder": 33,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5363",
+    "url": "https://jungol.co.kr/problem/5363?cursor=IjM1IiwyMSwxMQ=="
+  },
+  {
+    "id": "2021-dec-bronze-1",
+    "season": "2021-22",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Lonely Photo",
+    "types": [
+      "카운팅",
+      "구간 처리",
+      "관찰",
+      "런 길이"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "연속된 같은 문자 길이 세기",
+      "외로운 사진 조건을 구간 길이로 계산",
+      "중복 카운팅 피하기"
+    ],
+    "recommendedOrder": 57,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5350",
+    "url": "https://jungol.co.kr/problem/5350?cursor=IjM1IiwxOSw5"
+  },
+  {
+    "id": "2021-dec-bronze-2",
+    "season": "2021-22",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Air Cownditioning",
+    "types": [
+      "차이 배열",
+      "그리디",
+      "구간 처리",
+      "연속 변화량"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "현재 온도와 목표 차이 배열 만들기",
+      "연속 구간의 증감량 묶기",
+      "필요한 작업 수 누적"
+    ],
+    "recommendedOrder": 46,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5351",
+    "url": "https://jungol.co.kr/problem/5351?cursor=IjM1IiwxOSwxMA=="
+  },
+  {
+    "id": "2021-dec-bronze-3",
+    "season": "2021-22",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Walking Home",
+    "types": [
+      "DFS/BFS 기초",
+      "격자",
+      "완전탐색",
+      "경로 세기",
+      "방향 전환"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "오른쪽/아래 이동만 탐색",
+      "방향 전환 횟수 관리",
+      "작은 격자에서 모든 경로 세기"
+    ],
+    "recommendedOrder": 58,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5352",
+    "url": "https://jungol.co.kr/problem/5352?cursor=IjM1IiwxOSwxMQ=="
+  },
+  {
+    "id": "2022-jan-bronze-1",
+    "season": "2021-22",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Herdle",
+    "types": [
+      "문자열",
+      "카운팅",
+      "구현",
+      "빈도 배열"
+    ],
+    "difficultyLevel": 1,
+    "difficultyName": "Meteor",
+    "practicePoints": [
+      "정확한 위치 일치 개수 세기",
+      "문자별 빈도 비교",
+      "초록/노랑 판정 분리"
+    ],
+    "recommendedOrder": 11,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5344",
+    "url": "https://jungol.co.kr/problem/5344?cursor=IjM1IiwxOCw5"
+  },
+  {
+    "id": "2022-jan-bronze-2",
+    "season": "2021-22",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Non-Transitive Dice",
+    "types": [
+      "완전탐색",
+      "구성",
+      "카운팅",
+      "승패 비교"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "주사위 승패 수 비교",
+      "가능한 세 번째 주사위 전부 생성",
+      "비추이 조건 판정"
+    ],
+    "recommendedOrder": 59,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5345",
+    "url": "https://jungol.co.kr/problem/5345?cursor=IjM1IiwxOCwxMA=="
+  },
+  {
+    "id": "2022-jan-bronze-3",
+    "season": "2021-22",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Drought",
+    "types": [
+      "그리디",
+      "수학",
+      "케이스 분석",
+      "불가능 판정"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "인접한 양을 줄이는 연산 해석",
+      "왼쪽부터 필요한 만큼 처리",
+      "불가능 조건과 음수 체크"
+    ],
+    "recommendedOrder": 63,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5346",
+    "url": "https://jungol.co.kr/problem/5346?cursor=IjM1IiwxOCwxMQ=="
+  },
+  {
+    "id": "2022-feb-bronze-1",
+    "season": "2021-22",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Sleeping in Class",
+    "types": [
+      "완전탐색",
+      "누적합",
+      "수학",
+      "목표 합"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "가능한 목표 그룹 합 탐색",
+      "누적합으로 구간을 맞추기",
+      "최소 합치기 횟수 계산"
+    ],
+    "recommendedOrder": 47,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5332",
+    "url": "https://jungol.co.kr/problem/5332?cursor=IjM1IiwxNyw4"
+  },
+  {
+    "id": "2022-feb-bronze-2",
+    "season": "2021-22",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Photoshoot 2",
+    "types": [
+      "그리디",
+      "집합/맵",
+      "순열",
+      "위치 매핑"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "현재 순서와 목표 순서의 위치 비교",
+      "이미 맞출 수 있는 소 건너뛰기",
+      "필요 이동 횟수 관찰"
+    ],
+    "recommendedOrder": 60,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5333",
+    "url": "https://jungol.co.kr/problem/5333?cursor=IjM1IiwxNyw5"
+  },
+  {
+    "id": "2022-feb-bronze-3",
+    "season": "2021-22",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Blocks",
+    "types": [
+      "구성",
+      "문자열",
+      "케이스 분석",
+      "패턴 구성"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "블록 배치 규칙을 경우로 분리",
+      "문자열 길이와 문자 종류를 함께 판단",
+      "불가능한 패턴을 먼저 제거"
+    ],
+    "recommendedOrder": 64,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5334",
+    "url": "https://jungol.co.kr/problem/5334?cursor=IjM1IiwxNywxMA=="
+  },
+  {
+    "id": "2022-dec-bronze-1",
+    "season": "2022-23",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Cow College",
+    "types": [
+      "정렬",
+      "그리디",
+      "수학",
+      "수익 계산",
+      "동점 처리"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "등록금 후보를 정렬된 값에서만 확인",
+      "가격별 수익 계산",
+      "동점일 때 낮은 가격 선택"
+    ],
+    "recommendedOrder": 23,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5404",
+    "url": "https://jungol.co.kr/problem/5404?cursor=IjM1IiwxNSw5"
+  },
+  {
+    "id": "2022-dec-bronze-2",
+    "season": "2022-23",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Feeding the Cows",
+    "types": [
+      "그리디",
+      "문자열",
+      "구성",
+      "왼쪽부터 처리"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "왼쪽부터 아직 먹지 못한 소 처리",
+      "가능한 오른쪽 위치에 먹이 배치",
+      "G/H를 따로 관리"
+    ],
+    "recommendedOrder": 48,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5405",
+    "url": "https://jungol.co.kr/problem/5405?cursor=IjM1IiwxNSwxMA=="
+  },
+  {
+    "id": "2022-dec-bronze-3",
+    "season": "2022-23",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Reverse Engineering",
+    "types": [
+      "구현",
+      "케이스 분석",
+      "관찰",
+      "결정 변수"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "입력 사례를 반복적으로 줄이기",
+      "결과를 결정하는 변수를 찾기",
+      "진행이 멈추면 불가능 처리"
+    ],
+    "recommendedOrder": 65,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5406",
+    "url": "https://jungol.co.kr/problem/5406?cursor=IjM1IiwxNSwxMQ=="
+  },
+  {
+    "id": "2023-jan-bronze-1",
+    "season": "2022-23",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Leaders",
+    "types": [
+      "문자열",
+      "구간 처리",
+      "카운팅",
+      "리더 후보"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "각 그룹 리더 후보 찾기",
+      "리더가 커버해야 하는 범위 확인",
+      "쌍을 세는 조건 정리"
+    ],
+    "recommendedOrder": 49,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5466",
+    "url": "https://jungol.co.kr/problem/5466?cursor=IjM1IiwxNCw5"
+  },
+  {
+    "id": "2023-jan-bronze-2",
+    "season": "2022-23",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Air Cowditioning II",
+    "types": [
+      "완전탐색",
+      "구간 처리",
+      "최적화",
+      "조합 탐색"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "에어컨 선택 조합 탐색",
+      "구간별 냉방량 누적",
+      "비용 최솟값 갱신"
+    ],
+    "recommendedOrder": 61,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5467",
+    "url": "https://jungol.co.kr/problem/5467?cursor=IjM1IiwxNCwxMA=="
+  },
+  {
+    "id": "2023-jan-bronze-3",
+    "season": "2022-23",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Moo Operations",
+    "types": [
+      "문자열",
+      "케이스 분석",
+      "그리디",
+      "패턴 매칭"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "가운데 O를 기준으로 가능한 패턴 확인",
+      "길이에 따른 삭제 횟수 계산",
+      "불가능 문자열 빠르게 판정"
+    ],
+    "recommendedOrder": 50,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5468",
+    "url": "https://jungol.co.kr/problem/5468?cursor=IjM1IiwxNCwxMQ=="
+  },
+  {
+    "id": "2023-feb-bronze-1",
+    "season": "2022-23",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Hungry Cow",
+    "types": [
+      "시뮬레이션",
+      "그리디",
+      "수학",
+      "이벤트 처리"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "건초가 도착하는 날 순서 처리",
+      "먹을 수 있는 기간을 한 번에 계산",
+      "남은 건초량 관리"
+    ],
+    "recommendedOrder": 51,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5498",
+    "url": "https://jungol.co.kr/problem/5498?cursor=IjM1IiwxMyw5"
+  },
+  {
+    "id": "2023-feb-bronze-2",
+    "season": "2022-23",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Stamp Grid",
+    "types": [
+      "격자",
+      "시뮬레이션",
+      "구현",
+      "회전 변환"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "도장 회전 네 방향 생성",
+      "찍을 수 있는 위치를 모두 시도",
+      "목표 격자와 결과 격자 비교"
+    ],
+    "recommendedOrder": 66,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5499",
+    "url": "https://jungol.co.kr/problem/5499?cursor=IjM1IiwxMywxMA=="
+  },
+  {
+    "id": "2023-feb-bronze-3",
+    "season": "2022-23",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Watching Mooloo",
+    "types": [
+      "그리디",
+      "수학",
+      "관찰",
+      "비용 비교"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "이전 시청일과의 간격 비교",
+      "새 구독 시작 비용과 유지 비용 선택",
+      "long long 범위 주의"
+    ],
+    "recommendedOrder": 67,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "5500",
+    "url": "https://jungol.co.kr/problem/5500?cursor=IjM1IiwxMywxMQ=="
+  },
+  {
+    "id": "2023-dec-bronze-1",
+    "season": "2023-24",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Candy Cane Feast",
+    "types": [
+      "시뮬레이션",
+      "구현",
+      "배열",
+      "큰 수"
+    ],
+    "difficultyLevel": 1,
+    "difficultyName": "Meteor",
+    "practicePoints": [
+      "각 사탕을 아래부터 먹는 과정 구현",
+      "현재 높이와 남은 구간 갱신",
+      "큰 수 자료형 사용"
+    ],
+    "recommendedOrder": 12,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "6070",
+    "url": "https://jungol.co.kr/problem/6070?cursor=IjM1IiwxMSw5"
+  },
+  {
+    "id": "2023-dec-bronze-2",
+    "season": "2023-24",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Cowntact Tracing 2",
+    "types": [
+      "문자열",
+      "케이스 분석",
+      "관찰",
+      "감염 구간"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "연속 감염 구간 길이 파악",
+      "가능한 최소 시작 감염 수 계산",
+      "양끝 구간과 내부 구간 구분"
+    ],
+    "recommendedOrder": 68,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "6071",
+    "url": "https://jungol.co.kr/problem/6071?cursor=IjM1IiwxMSwxMA=="
+  },
+  {
+    "id": "2023-dec-bronze-3",
+    "season": "2023-24",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Farmer John Actually Farms",
+    "types": [
+      "정렬",
+      "수학",
+      "케이스 분석",
+      "부등식",
+      "날짜 범위"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "순위 조건을 부등식으로 변환",
+      "날짜 범위의 교집합 계산",
+      "불가능한 순서 판정"
+    ],
+    "recommendedOrder": 69,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "6072",
+    "url": "https://jungol.co.kr/problem/6072?cursor=IjM1IiwxMSwxMQ=="
+  },
+  {
+    "id": "2024-jan-bronze-1",
+    "season": "2023-24",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Majority Opinion",
+    "types": [
+      "카운팅",
+      "관찰",
+      "배열",
+      "길이 2/3 관찰"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "길이 2와 3 구간만 확인하는 관찰",
+      "가능한 다수 의견 표시",
+      "정렬된 출력 처리"
+    ],
+    "recommendedOrder": 34,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "6213",
+    "url": "https://jungol.co.kr/problem/6213?cursor=IjM1IiwxMCw5"
+  },
+  {
+    "id": "2024-jan-bronze-2",
+    "season": "2023-24",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Cannon Ball",
+    "types": [
+      "시뮬레이션",
+      "구현",
+      "방문 체크",
+      "상태 반복 감지"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "위치와 힘을 단계별로 갱신",
+      "같은 상태 반복 감지",
+      "타깃 깨짐 조건 구현"
+    ],
+    "recommendedOrder": 52,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "6214",
+    "url": "https://jungol.co.kr/problem/6214?cursor=IjM1IiwxMCwxMA=="
+  },
+  {
+    "id": "2024-jan-bronze-3",
+    "season": "2023-24",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Balancing Bacteria",
+    "types": [
+      "그리디",
+      "수학",
+      "누적합",
+      "누적 영향"
+    ],
+    "difficultyLevel": 7,
+    "difficultyName": "Yonder",
+    "practicePoints": [
+      "왼쪽부터 필요한 변화량 처리",
+      "이전 연산의 누적 영향 추적",
+      "큰 수와 부호 관리"
+    ],
+    "recommendedOrder": 70,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "6215",
+    "url": "https://jungol.co.kr/problem/6215?cursor=IjM1IiwxMCwxMQ=="
+  },
+  {
+    "id": "2024-feb-bronze-1",
+    "season": "2023-24",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Palindrome Game",
+    "types": [
+      "수학",
+      "문자열",
+      "관찰",
+      "승패 규칙"
+    ],
+    "difficultyLevel": 1,
+    "difficultyName": "Meteor",
+    "practicePoints": [
+      "끝자리가 0인지 관찰",
+      "승패 조건을 간단한 규칙으로 정리",
+      "여러 테스트 케이스 빠르게 처리"
+    ],
+    "recommendedOrder": 13,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8141",
+    "url": "https://jungol.co.kr/problem/8141?cursor=IjM1Iiw5LDk="
+  },
+  {
+    "id": "2024-feb-bronze-2",
+    "season": "2023-24",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Milk Exchange",
+    "types": [
+      "시뮬레이션",
+      "주기성",
+      "배열",
+      "원형 배열"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "원형 배열에서 이동 규칙 처리",
+      "반복 후 총량 변화 관찰",
+      "효율적인 누적 계산"
+    ],
+    "recommendedOrder": 71,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8140",
+    "url": "https://jungol.co.kr/problem/8140?cursor=IjM1Iiw5LDEw"
+  },
+  {
+    "id": "2024-feb-bronze-3",
+    "season": "2023-24",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Maximizing Productivity",
+    "types": [
+      "정렬",
+      "그리디",
+      "완전탐색",
+      "후보 비교"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "작업 후보를 정렬해 비교",
+      "가능한 선택 수 계산",
+      "최대값 갱신 조건 점검"
+    ],
+    "recommendedOrder": 72,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8139",
+    "url": "https://jungol.co.kr/problem/8139?cursor=IjM1Iiw5LDEx"
+  },
+  {
+    "id": "2024-dec-bronze-1",
+    "season": "2024-25",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Roundabout Rounding",
+    "types": [
+      "수학",
+      "구현",
+      "시뮬레이션",
+      "자릿수"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "반올림 절차를 자릿수별로 구현",
+      "직접 반올림과 연쇄 반올림 비교",
+      "10의 거듭제곱 다루기"
+    ],
+    "recommendedOrder": 24,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8176",
+    "url": "https://jungol.co.kr/problem/8176?cursor=IjM1Iiw3LDk="
+  },
+  {
+    "id": "2024-dec-bronze-2",
+    "season": "2024-25",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Farmer John's Cheese Block",
+    "types": [
+      "격자",
+      "시뮬레이션",
+      "카운팅",
+      "3차원 격자"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "3차원 칸의 제거 상태 관리",
+      "줄이 완성되는 순간 세기",
+      "좌표별 카운터 업데이트"
+    ],
+    "recommendedOrder": 53,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8177",
+    "url": "https://jungol.co.kr/problem/8177?cursor=IjM1Iiw3LDEw"
+  },
+  {
+    "id": "2024-dec-bronze-3",
+    "season": "2024-25",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "It's Mooin' Time",
+    "types": [
+      "문자열",
+      "카운팅",
+      "완전탐색",
+      "moo 패턴"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "가능한 moo 패턴 세기",
+      "문자별 빈도와 위치 확인",
+      "중복 결과를 집합으로 관리"
+    ],
+    "recommendedOrder": 54,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8178",
+    "url": "https://jungol.co.kr/problem/8178?cursor=IjM1Iiw3LDEx"
+  },
+  {
+    "id": "2025-jan-bronze-1",
+    "season": "2024-25",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Astral Superposition",
+    "types": [
+      "격자",
+      "구현",
+      "케이스 분석",
+      "겹침 판정"
+    ],
+    "difficultyLevel": 4,
+    "difficultyName": "Twilight",
+    "practicePoints": [
+      "이동 전후 격자의 겹침 해석",
+      "별이 가능한 위치 판정",
+      "불가능한 칸 조합 제거"
+    ],
+    "recommendedOrder": 35,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8255",
+    "url": "https://jungol.co.kr/problem/8255?cursor=IjM1Iiw2LDk="
+  },
+  {
+    "id": "2025-jan-bronze-2",
+    "season": "2024-25",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "It's Mooin' Time II",
+    "types": [
+      "문자열",
+      "집합/맵",
+      "카운팅",
+      "한 글자 변경"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "한 글자 변경 가능성을 고려",
+      "패턴 후보를 집합으로 관리",
+      "빈도 기준을 만족하는 결과 출력"
+    ],
+    "recommendedOrder": 36,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8256",
+    "url": "https://jungol.co.kr/problem/8256?cursor=IjM1Iiw2LDEw"
+  },
+  {
+    "id": "2025-jan-bronze-3",
+    "season": "2024-25",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Cow Checkups",
+    "types": [
+      "누적합",
+      "카운팅",
+      "관찰",
+      "구간 기여"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "구간별 일치 변화량 계산",
+      "뒤집기 전후 영향을 누적",
+      "중복되는 기여를 정리"
+    ],
+    "recommendedOrder": 37,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8257",
+    "url": "https://jungol.co.kr/problem/8257?cursor=IjM1Iiw2LDEx"
+  },
+  {
+    "id": "2025-feb-bronze-1",
+    "season": "2024-25",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Reflection",
+    "types": [
+      "좌표",
+      "기하 기초",
+      "관찰",
+      "대칭"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "반사축 후보 찾기",
+      "대칭되는 점 존재 확인",
+      "좌표 합을 이용한 비교"
+    ],
+    "recommendedOrder": 38,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8308",
+    "url": "https://jungol.co.kr/problem/8308?cursor=IjM1Iiw1LDk="
+  },
+  {
+    "id": "2025-feb-bronze-2",
+    "season": "2024-25",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Making Mexes",
+    "types": [
+      "그리디",
+      "카운팅",
+      "구성",
+      "mex"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "각 mex를 만들기 위한 필요 숫자 확인",
+      "빈도 배열로 가능한 값 추적",
+      "작은 값부터 조건 갱신"
+    ],
+    "recommendedOrder": 39,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8309",
+    "url": "https://jungol.co.kr/problem/8309?cursor=IjM1Iiw1LDEw"
+  },
+  {
+    "id": "2025-feb-bronze-3",
+    "season": "2024-25",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Printing Sequences",
+    "types": [
+      "구성",
+      "수학",
+      "케이스 분석",
+      "수열 구성"
+    ],
+    "difficultyLevel": 7,
+    "difficultyName": "Yonder",
+    "practicePoints": [
+      "가능한 출력 순서 조건 분석",
+      "구성 불가능 케이스 제거",
+      "수열을 직접 만들어 검증"
+    ],
+    "recommendedOrder": 40,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8310",
+    "url": "https://jungol.co.kr/problem/8310?cursor=IjM1Iiw1LDEx"
+  },
+  {
+    "id": "2026-first-bronze-1",
+    "season": "2026",
+    "contest": "First",
+    "contestLabel": "2026 First Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Chip Exchange",
+    "types": [
+      "시뮬레이션",
+      "그리디",
+      "수학",
+      "교환 규칙"
+    ],
+    "difficultyLevel": 2,
+    "difficultyName": "Aurora",
+    "practicePoints": [
+      "교환 규칙을 단계별로 적용",
+      "남는 칩 수를 관리",
+      "최대 교환 횟수 계산"
+    ],
+    "recommendedOrder": 25,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8840",
+    "url": "https://jungol.co.kr/problem/8840?cursor=IjM1IiwzLDk="
+  },
+  {
+    "id": "2026-first-bronze-2",
+    "season": "2026",
+    "contest": "First",
+    "contestLabel": "2026 First Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "COW Splits",
+    "types": [
+      "문자열",
+      "누적합",
+      "카운팅",
+      "문자 위치 누적"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "문자 C/O/W의 위치 누적",
+      "나눌 수 있는 기준점 탐색",
+      "구간별 조합 수 계산"
+    ],
+    "recommendedOrder": 26,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8841",
+    "url": "https://jungol.co.kr/problem/8841?cursor=IjM1IiwzLDEw"
+  },
+  {
+    "id": "2026-first-bronze-3",
+    "season": "2026",
+    "contest": "First",
+    "contestLabel": "2026 First Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Photoshoot",
+    "types": [
+      "구성",
+      "순열",
+      "관찰",
+      "시작값 가정"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "조건을 만족하는 순서 복원",
+      "중복되는 제목 문제와 구분",
+      "가능한 시작값을 제한해 탐색"
+    ],
+    "recommendedOrder": 8,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8842",
+    "url": "https://jungol.co.kr/problem/8842?cursor=IjM1IiwzLDEx"
+  },
+  {
+    "id": "2026-second-bronze-1",
+    "season": "2026",
+    "contest": "Second",
+    "contestLabel": "2026 Second Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "It's Mooin' Time IV",
+    "types": [
+      "문자열",
+      "카운팅",
+      "집합/맵",
+      "moo 패턴"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "moo 계열 패턴 후보 생성",
+      "중복 후보를 set으로 제거",
+      "빈도 조건에 맞게 정렬 출력"
+    ],
+    "recommendedOrder": 14,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8928",
+    "url": "https://jungol.co.kr/problem/8928?cursor=IjM1IiwyLDg="
+  },
+  {
+    "id": "2026-second-bronze-2",
+    "season": "2026",
+    "contest": "Second",
+    "contestLabel": "2026 Second Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Moo Hunt",
+    "types": [
+      "격자",
+      "완전탐색",
+      "문자열",
+      "방향 탐색"
+    ],
+    "difficultyLevel": 5,
+    "difficultyName": "Interstellar",
+    "practicePoints": [
+      "여러 방향으로 문자열 탐색",
+      "시작점과 방향을 모두 시도",
+      "범위 밖 접근 방지"
+    ],
+    "recommendedOrder": 15,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8929",
+    "url": "https://jungol.co.kr/problem/8929?cursor=IjM1IiwyLDk="
+  },
+  {
+    "id": "2026-second-bronze-3",
+    "season": "2026",
+    "contest": "Second",
+    "contestLabel": "2026 Second Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Purchasing Milk",
+    "types": [
+      "그리디",
+      "정렬",
+      "수학",
+      "필요량 채우기"
+    ],
+    "difficultyLevel": 6,
+    "difficultyName": "Nebula",
+    "practicePoints": [
+      "가격 또는 효율 기준 정렬",
+      "필요량을 채울 때까지 선택",
+      "비용 합을 큰 수로 관리"
+    ],
+    "recommendedOrder": 9,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "8930",
+    "url": "https://jungol.co.kr/problem/8930?cursor=IjM1IiwyLDEw"
+  },
+  {
+    "id": "2026-third-bronze-1",
+    "season": "2026",
+    "contest": "Third",
+    "contestLabel": "2026 Third Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Make All Distinct",
+    "types": [
+      "집합/맵",
+      "카운팅",
+      "그리디",
+      "중복 제거"
+    ],
+    "difficultyLevel": 3,
+    "difficultyName": "Radiant",
+    "practicePoints": [
+      "중복 값의 개수 세기",
+      "유일하게 만들기 위한 제거/변경 횟수 계산",
+      "빈도 배열과 set 활용"
+    ],
+    "recommendedOrder": 5,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "11759",
+    "url": "https://jungol.co.kr/problem/11759?cursor=IjM1IiwxLDA="
+  },
+  {
+    "id": "2026-third-bronze-2",
+    "season": "2026",
+    "contest": "Third",
+    "contestLabel": "2026 Third Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Strange Function",
+    "types": [
+      "수학",
+      "관찰",
+      "케이스 분석",
+      "함수 패턴"
+    ],
+    "difficultyLevel": 7,
+    "difficultyName": "Yonder",
+    "practicePoints": [
+      "함수 값의 패턴 찾기",
+      "작은 입력으로 규칙 검증",
+      "나머지와 범위 조건 분리"
+    ],
+    "recommendedOrder": 6,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "11760",
+    "url": "https://jungol.co.kr/problem/11760?cursor=IjM1IiwxLDE="
+  },
+  {
+    "id": "2026-third-bronze-3",
+    "season": "2026",
+    "contest": "Third",
+    "contestLabel": "2026 Third Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Swap to Win",
+    "types": [
+      "그리디",
+      "순열",
+      "완전탐색",
+      "교환 후보"
+    ],
+    "difficultyLevel": 7,
+    "difficultyName": "Yonder",
+    "practicePoints": [
+      "한 번의 swap 후보를 제한해 탐색",
+      "승리 조건 변화량 계산",
+      "최적 교환을 고르는 기준 정리"
+    ],
+    "recommendedOrder": 7,
+    "note": "",
+    "source": "JUNGOL",
+    "sourceId": "11761",
+    "url": "https://jungol.co.kr/problem/11761?cursor=IjM1IiwxLDI="
+  }
+]

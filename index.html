@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Martiny's USACO Space Center">
+    <title>Martiny's USACO Space Center</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <canvas id="star-map" aria-hidden="true"></canvas>
+    <div class="orbit-field" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <noscript>
+      <div class="notice">JavaScript가 꺼져 있어 문제 목록을 불러올 수 없습니다.</div>
+    </noscript>
+
+    <header class="topbar">
+      <a class="brand" href="#problem-list" aria-label="문제 목록으로 이동">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>Martiny's USACO Space Center</h1>
+        </div>
+      </a>
+
+      <section class="top-stats" aria-label="문제 통계">
+        <div><span>문제</span><strong id="total-count">0</strong></div>
+        <div><span>표시</span><strong id="visible-count">0</strong></div>
+        <div><span>완료</span><strong id="completed-count">0</strong></div>
+        <div><span>유형</span><strong id="selected-type-count">0</strong></div>
+      </section>
+    </header>
+
+    <main class="app-shell">
+      <aside class="filter-panel" aria-label="필터">
+        <div class="panel-top">
+          <h2>필터</h2>
+          <button id="reset-filters" type="button">초기화</button>
+        </div>
+
+        <label class="search-field" for="search-input">
+          검색
+          <input id="search-input" type="search" placeholder="문제명, 유형, 연습 포인트">
+        </label>
+
+        <div class="filter-grid">
+          <label>
+            시즌
+            <select id="season-filter"></select>
+          </label>
+          <label>
+            대회
+            <select id="contest-filter"></select>
+          </label>
+          <label>
+            난이도
+            <select id="difficulty-filter"></select>
+          </label>
+          <label>
+            완료
+            <select id="progress-filter">
+              <option value="all">전체</option>
+              <option value="todo">미완료</option>
+              <option value="done">완료</option>
+            </select>
+          </label>
+          <label>
+            유형 조건
+            <select id="type-mode">
+              <option value="or">OR</option>
+              <option value="and">AND</option>
+            </select>
+          </label>
+          <label>
+            정렬
+            <select id="sort-order">
+              <option value="recommended">추천순</option>
+              <option value="season">시즌순</option>
+              <option value="difficulty">난이도순</option>
+              <option value="title">이름순</option>
+              <option value="unfinished">미완료 먼저</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="type-tools">
+          <label for="type-search">
+            유형 검색
+            <input id="type-search" type="search" placeholder="예: 문자열, mex, 격자">
+          </label>
+        </div>
+        <div class="chip-cloud" id="type-filters"></div>
+      </aside>
+
+      <section class="board">
+        <section class="difficulty-strip" id="difficulty-legend" aria-label="난이도"></section>
+
+        <div class="board-head">
+          <div>
+            <p id="status-text" role="status">문제 데이터를 불러오는 중입니다.</p>
+            <div class="active-filters" id="active-filters">필터 없음</div>
+          </div>
+        </div>
+
+        <section class="problem-list" id="problem-list" aria-live="polite"></section>
+
+        <section class="empty-state" id="empty-state" hidden>
+          조건에 맞는 문제가 없습니다.
+        </section>
+
+        <section class="notice" id="load-error" hidden>
+          <strong>문제 데이터를 불러오지 못했습니다.</strong>
+          <span>정적 서버에서 열거나 `problems.json` 파일이 같은 폴더에 있는지 확인해 주세요.</span>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <p>문제 유형과 난이도는 학습용 자체 분류입니다.</p>
+    </footer>
+  </body>
+</html>
