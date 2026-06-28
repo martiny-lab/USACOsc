@@ -1,7 +1,4 @@
-const STORAGE_KEYS = {
-  completed: "martiny-usaco-completed",
-  notes: "martiny-usaco-notes"
-};
+const THEME_KEY = "martiny-usaco-theme";
 
 const DIFFICULTIES = {
   1: "Meteor",
@@ -36,14 +33,11 @@ const state = {
   problems: [],
   filtered: [],
   selectedTypes: new Set(),
-  completed: new Set(readJson(STORAGE_KEYS.completed, [])),
-  notes: readJson(STORAGE_KEYS.notes, {}),
   filters: {
     search: "",
     season: "all",
     contest: "all",
     difficulty: "all",
-    progress: "all",
     typeMode: "or",
     sort: "recommended"
   }
@@ -53,6 +47,7 @@ const els = {};
 
 document.addEventListener("DOMContentLoaded", async () => {
   bindElements();
+  setupTheme();
   setupStarMap();
   bindEvents();
 
@@ -83,9 +78,9 @@ function bindElements() {
     "season-filter",
     "contest-filter",
     "difficulty-filter",
-    "progress-filter",
     "type-mode",
     "sort-order",
+    "theme-toggle",
     "reset-filters",
     "type-filters",
     "difficulty-legend",
@@ -100,6 +95,11 @@ function bindElements() {
 }
 
 function bindEvents() {
+  els.themeToggle.addEventListener("click", () => {
+    const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+  });
+
   els.filterToggle.addEventListener("click", () => {
     setFilterPanelOpen(els.filterPanel.hidden);
   });
@@ -123,11 +123,6 @@ function bindEvents() {
 
   els.difficultyFilter.addEventListener("change", (event) => {
     state.filters.difficulty = event.target.value;
-    applyFilters();
-  });
-
-  els.progressFilter.addEventListener("change", (event) => {
-    state.filters.progress = event.target.value;
     applyFilters();
   });
 
@@ -174,30 +169,11 @@ function bindEvents() {
     if (!tag) return;
     toggleType(tag.dataset.problemType);
   });
-
-  els.problemList.addEventListener("change", (event) => {
-    const checkbox = event.target.closest("[data-complete-id]");
-    if (!checkbox) return;
-    if (checkbox.checked) {
-      state.completed.add(checkbox.dataset.completeId);
-    } else {
-      state.completed.delete(checkbox.dataset.completeId);
-    }
-    saveCompleted();
-    applyFilters();
-  });
-
-  els.problemList.addEventListener("input", (event) => {
-    const note = event.target.closest("[data-note-id]");
-    if (!note) return;
-    state.notes[note.dataset.noteId] = note.value;
-    localStorage.setItem(STORAGE_KEYS.notes, JSON.stringify(state.notes));
-  });
 }
 
 function buildControls() {
   fillSelect(els.seasonFilter, "전체", unique(state.problems.map((problem) => problem.season)));
-  fillSelect(els.contestFilter, "전체", ["Dec", "Jan", "Feb", "First", "Second", "Third"]);
+  fillSelect(els.contestFilter, "전체", contestOptions());
   fillSelect(
     els.difficultyFilter,
     "전체",
@@ -229,18 +205,16 @@ function applyFilters() {
   const selectedTypes = [...state.selectedTypes];
 
   state.filtered = state.problems.filter((problem) => {
-    const done = state.completed.has(problem.id);
     const searchMatches = !state.filters.search || searchableText(problem).includes(state.filters.search);
     const seasonMatches = state.filters.season === "all" || problem.season === state.filters.season;
     const contestMatches = state.filters.contest === "all" || problem.contest === state.filters.contest;
     const difficultyMatches = state.filters.difficulty === "all" || String(problem.difficultyLevel) === state.filters.difficulty;
-    const progressMatches = state.filters.progress === "all" || (state.filters.progress === "done" ? done : !done);
     const typeMatches = selectedTypes.length === 0 || (
       state.filters.typeMode === "and"
         ? selectedTypes.every((type) => problem.types.includes(type))
         : selectedTypes.some((type) => problem.types.includes(type))
     );
-    return searchMatches && seasonMatches && contestMatches && difficultyMatches && progressMatches && typeMatches;
+    return searchMatches && seasonMatches && contestMatches && difficultyMatches && typeMatches;
   });
 
   sortProblems();
@@ -274,9 +248,6 @@ function sortProblems() {
     if (state.filters.sort === "title") {
       return a.title.localeCompare(b.title, "en") || a.recommendedOrder - b.recommendedOrder;
     }
-    if (state.filters.sort === "unfinished") {
-      return Number(state.completed.has(a.id)) - Number(state.completed.has(b.id)) || a.recommendedOrder - b.recommendedOrder;
-    }
     if (state.filters.sort === "season") {
       return seasonKey(a) - seasonKey(b) || a.number - b.number;
     }
@@ -285,23 +256,17 @@ function sortProblems() {
 }
 
 function seasonKey(problem) {
-  const seasonOrder = ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25", "2026"];
-  const contestOrder = ["Dec", "Jan", "Feb", "First", "Second", "Third"];
-  return seasonOrder.indexOf(problem.season) * 100 + contestOrder.indexOf(problem.contest) * 10 + problem.number;
+  const contestOrder = ["Dec", "Jan", "Feb", "First", "Second"];
+  const seasonStart = Number(String(problem.season).slice(0, 4));
+  return seasonStart * 100 + contestOrder.indexOf(problem.contest) * 10 + problem.number;
 }
 
 function renderProblems() {
   els.problemList.innerHTML = state.filtered.map((problem) => {
-    const completed = state.completed.has(problem.id);
     const level = problem.difficultyLevel;
     const source = problem.source && problem.sourceId ? `${escapeHtml(problem.source)} #${escapeHtml(problem.sourceId)}` : "";
     return `
-      <article class="problem-card ${completed ? "is-complete" : ""}" style="--level-color: var(--level-${level})">
-        <label class="complete-toggle">
-          <input type="checkbox" data-complete-id="${escapeAttr(problem.id)}" ${completed ? "checked" : ""} aria-label="${escapeAttr(problem.title)} 완료">
-          <span></span>
-        </label>
-
+      <article class="problem-card" style="--level-color: var(--level-${level})">
         <div class="problem-core">
           <div class="problem-meta">
             <span>${escapeHtml(problem.season)}</span>
@@ -328,8 +293,6 @@ function renderProblems() {
         <ul class="practice-list">
           ${problem.practicePoints.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}
         </ul>
-
-        <textarea class="problem-note" data-note-id="${escapeAttr(problem.id)}" placeholder="메모">${escapeHtml(state.notes[problem.id] || problem.note || "")}</textarea>
       </article>
     `;
   }).join("");
@@ -353,7 +316,6 @@ function renderActiveFilters() {
   if (state.filters.season !== "all") chips.push(activeChip(state.filters.season, "season"));
   if (state.filters.contest !== "all") chips.push(activeChip(state.filters.contest, "contest"));
   if (state.filters.difficulty !== "all") chips.push(activeChip(`Lv.${state.filters.difficulty}`, "difficulty"));
-  if (state.filters.progress !== "all") chips.push(activeChip(selectedText(els.progressFilter), "progress"));
   if (state.filters.typeMode !== "or") chips.push(activeChip("AND", "typeMode"));
   if (state.filters.sort !== "recommended") chips.push(activeChip(selectedText(els.sortOrder), "sort"));
   [...state.selectedTypes].forEach((type) => {
@@ -380,7 +342,6 @@ function clearFilter(filter) {
   if (filter === "season") state.filters.season = "all";
   if (filter === "contest") state.filters.contest = "all";
   if (filter === "difficulty") state.filters.difficulty = "all";
-  if (filter === "progress") state.filters.progress = "all";
   if (filter === "typeMode") state.filters.typeMode = "or";
   if (filter === "sort") state.filters.sort = "recommended";
   syncControlsFromState();
@@ -394,7 +355,6 @@ function resetFilters() {
     season: "all",
     contest: "all",
     difficulty: "all",
-    progress: "all",
     typeMode: "or",
     sort: "recommended"
   };
@@ -408,7 +368,6 @@ function syncControlsFromState() {
   els.seasonFilter.value = state.filters.season;
   els.contestFilter.value = state.filters.contest;
   els.difficultyFilter.value = state.filters.difficulty;
-  els.progressFilter.value = state.filters.progress;
   els.typeMode.value = state.filters.typeMode;
   els.sortOrder.value = state.filters.sort;
 }
@@ -425,10 +384,6 @@ function selectedText(select) {
   return select.options[select.selectedIndex]?.textContent || "";
 }
 
-function saveCompleted() {
-  localStorage.setItem(STORAGE_KEYS.completed, JSON.stringify([...state.completed]));
-}
-
 function setFilterPanelOpen(open) {
   els.filterPanel.hidden = !open;
   els.appShell.classList.toggle("has-open-filter", open);
@@ -436,16 +391,37 @@ function setFilterPanelOpen(open) {
   els.filterToggle.textContent = open ? "필터 닫기" : "필터 열기";
 }
 
-function readJson(key, fallback) {
-  try {
-    return JSON.parse(localStorage.getItem(key)) || fallback;
-  } catch {
-    return fallback;
-  }
-}
-
 function unique(values) {
   return [...new Set(values)].sort((a, b) => String(a).localeCompare(String(b), "ko", { numeric: true }));
+}
+
+function contestOptions() {
+  const labels = {
+    Dec: "Dec",
+    Jan: "Jan",
+    Feb: "Feb",
+    First: "First",
+    Second: "Second"
+  };
+  const order = ["Dec", "Jan", "Feb", "First", "Second"];
+  const available = new Set(state.problems.map((problem) => problem.contest));
+  return order
+    .filter((contest) => available.has(contest))
+    .map((contest) => ({ value: contest, label: labels[contest] }));
+}
+
+function setupTheme() {
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  setTheme(savedTheme === "light" ? "light" : "dark");
+}
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem(THEME_KEY, theme);
+  if (els.themeToggle) {
+    els.themeToggle.textContent = theme === "light" ? "다크 모드" : "라이트 모드";
+    els.themeToggle.setAttribute("aria-label", `${theme === "light" ? "다크" : "라이트"} 모드로 전환`);
+  }
 }
 
 function sortTypes(types) {
@@ -479,14 +455,15 @@ function setupStarMap() {
     ctx.clearRect(0, 0, width, height);
 
     stars.forEach((star, index) => {
+      const isLightTheme = document.documentElement.dataset.theme === "light";
       const x = star.x * width;
       const y = star.y * height;
       const glow = 0.34 + Math.sin(time * 0.002 + star.phase) * 0.16;
       ctx.beginPath();
       ctx.arc(x, y, star.r, 0, Math.PI * 2);
       ctx.shadowBlur = 12;
-      ctx.shadowColor = "rgba(154, 218, 255, 0.42)";
-      ctx.fillStyle = `rgba(230, 236, 255, ${glow})`;
+      ctx.shadowColor = isLightTheme ? "rgba(43, 102, 192, 0.28)" : "rgba(154, 218, 255, 0.42)";
+      ctx.fillStyle = isLightTheme ? `rgba(43, 102, 192, ${glow * 0.52})` : `rgba(230, 236, 255, ${glow})`;
       ctx.fill();
       ctx.shadowBlur = 0;
 
@@ -495,7 +472,7 @@ function setupStarMap() {
         ctx.beginPath();
         ctx.moveTo(x, y);
         ctx.lineTo(next.x * width, next.y * height);
-        ctx.strokeStyle = "rgba(154, 218, 255, 0.14)";
+        ctx.strokeStyle = isLightTheme ? "rgba(43, 102, 192, 0.13)" : "rgba(154, 218, 255, 0.14)";
         ctx.stroke();
       }
     });

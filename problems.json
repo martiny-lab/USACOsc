@@ -1,5 +1,666 @@
 [
   {
+    "id": "2015-dec-bronze-1",
+    "season": "2015-16",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Fence Painting",
+    "types": [
+      "구현",
+      "구간 처리"
+    ],
+    "difficultyLevel": 1,
+    "practicePoints": [
+      "두 구간의 칠해진 길이 합치기",
+      "겹치는 구간 길이 계산",
+      "끝점 포함 여부를 정확히 처리"
+    ],
+    "source": "USACO",
+    "sourceId": "567",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=567",
+    "difficultyName": "Meteor",
+    "recommendedOrder": 1
+  },
+  {
+    "id": "2015-dec-bronze-2",
+    "season": "2015-16",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Speeding Ticket",
+    "types": [
+      "시뮬레이션",
+      "구현"
+    ],
+    "difficultyLevel": 2,
+    "practicePoints": [
+      "도로 구간을 단위 위치로 펼치기",
+      "제한 속도와 실제 속도 비교",
+      "최대 초과량 갱신"
+    ],
+    "source": "USACO",
+    "sourceId": "568",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=568",
+    "difficultyName": "Aurora",
+    "recommendedOrder": 14
+  },
+  {
+    "id": "2015-dec-bronze-3",
+    "season": "2015-16",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Contaminated Milk",
+    "types": [
+      "완전탐색",
+      "시뮬레이션",
+      "카운팅"
+    ],
+    "difficultyLevel": 4,
+    "practicePoints": [
+      "가능한 오염 우유 후보를 전부 시험",
+      "아픈 시간 이전 섭취 조건 확인",
+      "필요한 치료제 수 최댓값 계산"
+    ],
+    "source": "USACO",
+    "sourceId": "569",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=569",
+    "difficultyName": "Twilight",
+    "recommendedOrder": 49
+  },
+  {
+    "id": "2016-jan-bronze-1",
+    "season": "2015-16",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Promotion Counting",
+    "types": [
+      "구현",
+      "수학"
+    ],
+    "difficultyLevel": 1,
+    "practicePoints": [
+      "등급별 변화량 계산",
+      "위 등급으로 올라간 수를 역순으로 누적",
+      "입출력 형식 그대로 구현"
+    ],
+    "source": "USACO",
+    "sourceId": "591",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=591",
+    "difficultyName": "Meteor",
+    "recommendedOrder": 2
+  },
+  {
+    "id": "2016-jan-bronze-2",
+    "season": "2015-16",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Angry Cows",
+    "types": [
+      "완전탐색",
+      "정렬",
+      "시뮬레이션"
+    ],
+    "difficultyLevel": 4,
+    "practicePoints": [
+      "시작 건초더미를 모두 시도",
+      "폭발 반경이 커지는 과정을 양방향 시뮬레이션",
+      "정렬된 위치에서 연쇄 범위 관리"
+    ],
+    "source": "USACO",
+    "sourceId": "592",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=592",
+    "difficultyName": "Twilight",
+    "recommendedOrder": 50
+  },
+  {
+    "id": "2016-jan-bronze-3",
+    "season": "2015-16",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Mowing the Field",
+    "types": [
+      "시뮬레이션",
+      "자료구조",
+      "격자"
+    ],
+    "difficultyLevel": 3,
+    "practicePoints": [
+      "시간별 방문 좌표 기록",
+      "재방문까지 걸린 시간 차이 계산",
+      "좌표 범위를 안전하게 표현"
+    ],
+    "source": "USACO",
+    "sourceId": "593",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=593",
+    "difficultyName": "Radiant",
+    "recommendedOrder": 31
+  },
+  {
+    "id": "2016-feb-bronze-1",
+    "season": "2015-16",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Milk Pails",
+    "types": [
+      "수학",
+      "완전탐색"
+    ],
+    "difficultyLevel": 2,
+    "practicePoints": [
+      "두 양동이를 몇 번 쓸지 전부 시도",
+      "목표 이하 최대값 갱신",
+      "작은 제한을 이용한 이중 반복"
+    ],
+    "source": "USACO",
+    "sourceId": "615",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=615",
+    "difficultyName": "Aurora",
+    "recommendedOrder": 15
+  },
+  {
+    "id": "2016-feb-bronze-2",
+    "season": "2015-16",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Circular Barn",
+    "types": [
+      "시뮬레이션",
+      "구현"
+    ],
+    "difficultyLevel": 3,
+    "practicePoints": [
+      "각 시작 문 위치를 모두 시도",
+      "원형 배열 순회 처리",
+      "이동 거리 합 계산"
+    ],
+    "source": "USACO",
+    "sourceId": "616",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=616",
+    "difficultyName": "Radiant",
+    "recommendedOrder": 32
+  },
+  {
+    "id": "2016-feb-bronze-3",
+    "season": "2015-16",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Load Balancing",
+    "types": [
+      "기하",
+      "완전탐색",
+      "정렬"
+    ],
+    "difficultyLevel": 5,
+    "practicePoints": [
+      "후보 x/y 분할선을 제한해 탐색",
+      "네 사분면의 소 개수 세기",
+      "최댓값이 최소가 되는 배치 찾기"
+    ],
+    "source": "USACO",
+    "sourceId": "617",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=617",
+    "difficultyName": "Interstellar",
+    "recommendedOrder": 69
+  },
+  {
+    "id": "2016-dec-bronze-1",
+    "season": "2016-17",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Square Pasture",
+    "types": [
+      "기하",
+      "구현"
+    ],
+    "difficultyLevel": 1,
+    "practicePoints": [
+      "두 직사각형을 덮는 최소 정사각형 계산",
+      "x/y 좌표의 최소와 최대 찾기",
+      "변 길이의 제곱 출력"
+    ],
+    "source": "USACO",
+    "sourceId": "663",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=663",
+    "difficultyName": "Meteor",
+    "recommendedOrder": 3
+  },
+  {
+    "id": "2016-dec-bronze-2",
+    "season": "2016-17",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Block Game",
+    "types": [
+      "문자열",
+      "카운팅"
+    ],
+    "difficultyLevel": 2,
+    "practicePoints": [
+      "단어별 알파벳 빈도 세기",
+      "양면 카드에서 필요한 최대 개수 선택",
+      "26칸 배열 누적"
+    ],
+    "source": "USACO",
+    "sourceId": "664",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=664",
+    "difficultyName": "Aurora",
+    "recommendedOrder": 16
+  },
+  {
+    "id": "2016-dec-bronze-3",
+    "season": "2016-17",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "The Cow-Signal",
+    "types": [
+      "구현",
+      "격자"
+    ],
+    "difficultyLevel": 1,
+    "practicePoints": [
+      "문자 하나를 K번 가로 확대",
+      "행을 K번 반복 출력",
+      "출력 형식 실수 줄이기"
+    ],
+    "source": "USACO",
+    "sourceId": "665",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=665",
+    "difficultyName": "Meteor",
+    "recommendedOrder": 4
+  },
+  {
+    "id": "2017-jan-bronze-1",
+    "season": "2016-17",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Don't Be Last!",
+    "types": [
+      "카운팅",
+      "정렬",
+      "구현"
+    ],
+    "difficultyLevel": 2,
+    "practicePoints": [
+      "소 이름별 우유량 누적",
+      "최소보다 큰 두 번째 값 찾기",
+      "동점이면 Tie 처리"
+    ],
+    "source": "USACO",
+    "sourceId": "687",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=687",
+    "difficultyName": "Aurora",
+    "recommendedOrder": 17
+  },
+  {
+    "id": "2017-jan-bronze-2",
+    "season": "2016-17",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Hoof, Paper, Scissors",
+    "types": [
+      "완전탐색",
+      "시뮬레이션",
+      "카운팅"
+    ],
+    "difficultyLevel": 3,
+    "practicePoints": [
+      "세 동작의 승패 매핑을 모두 시도",
+      "게임 기록마다 승수 계산",
+      "순열 탐색으로 규칙 선택"
+    ],
+    "source": "USACO",
+    "sourceId": "688",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=688",
+    "difficultyName": "Radiant",
+    "recommendedOrder": 33
+  },
+  {
+    "id": "2017-jan-bronze-3",
+    "season": "2016-17",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Cow Tipping",
+    "types": [
+      "격자",
+      "그리디",
+      "시뮬레이션"
+    ],
+    "difficultyLevel": 3,
+    "practicePoints": [
+      "오른쪽 아래부터 상태 확인",
+      "필요할 때 prefix 영역 뒤집기",
+      "뒤집기 횟수 누적"
+    ],
+    "source": "USACO",
+    "sourceId": "689",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=689",
+    "difficultyName": "Radiant",
+    "recommendedOrder": 34
+  },
+  {
+    "id": "2017-feb-bronze-1",
+    "season": "2016-17",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Why Did the Cow Cross the Road",
+    "types": [
+      "구현",
+      "시뮬레이션"
+    ],
+    "difficultyLevel": 1,
+    "practicePoints": [
+      "소별 마지막 위치 저장",
+      "길을 건넌 횟수만 증가",
+      "처음 등장한 소 예외 처리"
+    ],
+    "source": "USACO",
+    "sourceId": "711",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=711",
+    "difficultyName": "Meteor",
+    "recommendedOrder": 5
+  },
+  {
+    "id": "2017-feb-bronze-2",
+    "season": "2016-17",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Why Did the Cow Cross the Road II",
+    "types": [
+      "문자열",
+      "카운팅",
+      "완전탐색"
+    ],
+    "difficultyLevel": 3,
+    "practicePoints": [
+      "알파벳 쌍을 모두 확인",
+      "두 출현 위치 사이 포함 관계 판단",
+      "교차하는 쌍의 수 세기"
+    ],
+    "source": "USACO",
+    "sourceId": "712",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=712",
+    "difficultyName": "Radiant",
+    "recommendedOrder": 35
+  },
+  {
+    "id": "2017-feb-bronze-3",
+    "season": "2016-17",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Why Did the Cow Cross the Road III",
+    "types": [
+      "시뮬레이션",
+      "정렬",
+      "그리디"
+    ],
+    "difficultyLevel": 3,
+    "practicePoints": [
+      "도착 시간순으로 닭 정렬",
+      "도움을 받을 수 있는 소 후보 찾기",
+      "가장 이른 종료 시간을 우선 선택"
+    ],
+    "source": "USACO",
+    "sourceId": "713",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=713",
+    "difficultyName": "Radiant",
+    "recommendedOrder": 36
+  },
+  {
+    "id": "2017-dec-bronze-1",
+    "season": "2017-18",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Blocked Billboard",
+    "types": [
+      "기하",
+      "구현"
+    ],
+    "difficultyLevel": 2,
+    "practicePoints": [
+      "직사각형 넓이 계산",
+      "겹치는 영역 넓이 빼기",
+      "두 광고판을 독립적으로 처리"
+    ],
+    "source": "USACO",
+    "sourceId": "759",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=759",
+    "difficultyName": "Aurora",
+    "recommendedOrder": 18
+  },
+  {
+    "id": "2017-dec-bronze-2",
+    "season": "2017-18",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "The Bovine Shuffle",
+    "types": [
+      "시뮬레이션",
+      "자료구조"
+    ],
+    "difficultyLevel": 2,
+    "practicePoints": [
+      "셔플 매핑을 배열로 저장",
+      "세 번 역방향 적용",
+      "위치와 ID를 분리해 관리"
+    ],
+    "source": "USACO",
+    "sourceId": "760",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=760",
+    "difficultyName": "Aurora",
+    "recommendedOrder": 19
+  },
+  {
+    "id": "2017-dec-bronze-3",
+    "season": "2017-18",
+    "contest": "Dec",
+    "contestLabel": "December Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Milk Measurement",
+    "types": [
+      "시뮬레이션",
+      "자료구조",
+      "카운팅"
+    ],
+    "difficultyLevel": 5,
+    "practicePoints": [
+      "날짜순 이벤트 정렬",
+      "소별 생산량 갱신",
+      "전광판에 표시되는 집합 변화 감지"
+    ],
+    "source": "USACO",
+    "sourceId": "761",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=761",
+    "difficultyName": "Interstellar",
+    "recommendedOrder": 70
+  },
+  {
+    "id": "2018-jan-bronze-1",
+    "season": "2017-18",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Blocked Billboard II",
+    "types": [
+      "기하",
+      "구현"
+    ],
+    "difficultyLevel": 3,
+    "practicePoints": [
+      "한 직사각형이 다른 직사각형을 가리는 범위 계산",
+      "완전히 가려지는 축과 아닌 축 구분",
+      "남는 넓이 출력"
+    ],
+    "source": "USACO",
+    "sourceId": "783",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=783",
+    "difficultyName": "Radiant",
+    "recommendedOrder": 37
+  },
+  {
+    "id": "2018-jan-bronze-2",
+    "season": "2017-18",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Lifeguards",
+    "types": [
+      "완전탐색",
+      "구간 처리"
+    ],
+    "difficultyLevel": 3,
+    "practicePoints": [
+      "해고할 직원을 하나씩 시도",
+      "남은 구간의 커버 시간 계산",
+      "작은 시간 범위를 배열로 표시"
+    ],
+    "source": "USACO",
+    "sourceId": "784",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=784",
+    "difficultyName": "Radiant",
+    "recommendedOrder": 38
+  },
+  {
+    "id": "2018-jan-bronze-3",
+    "season": "2017-18",
+    "contest": "Jan",
+    "contestLabel": "January Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Out of Place",
+    "types": [
+      "정렬",
+      "카운팅"
+    ],
+    "difficultyLevel": 2,
+    "practicePoints": [
+      "정렬된 배열과 원본 비교",
+      "다른 위치 개수 세기",
+      "필요한 swap 횟수로 변환"
+    ],
+    "source": "USACO",
+    "sourceId": "785",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=785",
+    "difficultyName": "Aurora",
+    "recommendedOrder": 20
+  },
+  {
+    "id": "2018-feb-bronze-1",
+    "season": "2017-18",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 1,
+    "title": "Teleportation",
+    "types": [
+      "수학",
+      "그리디",
+      "애드혹"
+    ],
+    "difficultyLevel": 4,
+    "practicePoints": [
+      "직접 이동과 순간이동 비용 비교",
+      "절댓값 거리 계산",
+      "여러 경로 후보 중 최소 선택"
+    ],
+    "source": "USACO",
+    "sourceId": "807",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=807",
+    "difficultyName": "Twilight",
+    "recommendedOrder": 51
+  },
+  {
+    "id": "2018-feb-bronze-2",
+    "season": "2017-18",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 2,
+    "title": "Hoofball",
+    "types": [
+      "시뮬레이션",
+      "그래프",
+      "카운팅"
+    ],
+    "difficultyLevel": 4,
+    "practicePoints": [
+      "각 소가 공을 넘길 대상 계산",
+      "들어오는 간선 수 세기",
+      "특수한 서로 주고받는 쌍 처리"
+    ],
+    "source": "USACO",
+    "sourceId": "808",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=808",
+    "difficultyName": "Twilight",
+    "recommendedOrder": 52
+  },
+  {
+    "id": "2018-feb-bronze-3",
+    "season": "2017-18",
+    "contest": "Feb",
+    "contestLabel": "February Contest",
+    "division": "Bronze",
+    "number": 3,
+    "title": "Taming the Herd",
+    "types": [
+      "시뮬레이션",
+      "구현",
+      "카운팅"
+    ],
+    "difficultyLevel": 4,
+    "practicePoints": [
+      "로그를 거꾸로 보며 강제값 채우기",
+      "모순 조건 확인",
+      "가능한 최소/최대 breakout 수 계산"
+    ],
+    "source": "USACO",
+    "sourceId": "809",
+    "url": "https://usaco.org/index.php?page=viewproblem2&cpid=809",
+    "difficultyName": "Twilight",
+    "recommendedOrder": 53
+  },
+  {
     "id": "2018-dec-bronze-1",
     "season": "2018-19",
     "contest": "Dec",
@@ -18,8 +679,7 @@
       "정해진 횟수만큼 반복",
       "min을 이용한 이동량 계산"
     ],
-    "recommendedOrder": 1,
-    "note": "",
+    "recommendedOrder": 6,
     "source": "JUNGOL",
     "sourceId": "4090",
     "url": "https://jungol.co.kr/problem/4090?cursor=IjM1IiwzMSwxMQ=="
@@ -43,8 +703,7 @@
       "동시에 필요한 버킷 수 계산",
       "작은 범위 배열 활용"
     ],
-    "recommendedOrder": 16,
-    "note": "",
+    "recommendedOrder": 21,
     "source": "JUNGOL",
     "sourceId": "4091",
     "url": "https://jungol.co.kr/problem/4091?cursor=IjM1IiwzMSwxMg=="
@@ -69,8 +728,7 @@
       "가능한 최종 용량 집합 만들기",
       "상태 복사와 복구 실수 줄이기"
     ],
-    "recommendedOrder": 41,
-    "note": "",
+    "recommendedOrder": 54,
     "source": "JUNGOL",
     "sourceId": "4092",
     "url": "https://jungol.co.kr/problem/4092?cursor=IjM1IiwzMSwxMw=="
@@ -94,8 +752,7 @@
       "가능한 시작 위치 모두 시험",
       "스왑 연산 정확히 구현"
     ],
-    "recommendedOrder": 2,
-    "note": "",
+    "recommendedOrder": 7,
     "source": "JUNGOL",
     "sourceId": "4102",
     "url": "https://jungol.co.kr/problem/4102?cursor=IjM1IiwzMCw5"
@@ -119,8 +776,7 @@
       "움직여야 하는 prefix 길이 계산",
       "인덱스 기준 관찰 연습"
     ],
-    "recommendedOrder": 17,
-    "note": "",
+    "recommendedOrder": 22,
     "source": "JUNGOL",
     "sourceId": "4103",
     "url": "https://jungol.co.kr/problem/4103?cursor=IjM1IiwzMCwxMA=="
@@ -145,8 +801,7 @@
       "문자열 집합 비교",
       "정답에 1을 더하는 이유 이해"
     ],
-    "recommendedOrder": 18,
-    "note": "",
+    "recommendedOrder": 23,
     "source": "JUNGOL",
     "sourceId": "4104",
     "url": "https://jungol.co.kr/problem/4104?cursor=IjM1IiwzMCwxMQ=="
@@ -170,8 +825,7 @@
       "최소 이동의 특수 케이스 처리",
       "최대 이동은 큰 간격 기준으로 계산"
     ],
-    "recommendedOrder": 27,
-    "note": "",
+    "recommendedOrder": 39,
     "source": "JUNGOL",
     "sourceId": "4114",
     "url": "https://jungol.co.kr/problem/4114?cursor=IjM1IiwyOSw5"
@@ -196,8 +850,7 @@
       "인접 제약 확인",
       "그래프 입력을 배열로 저장"
     ],
-    "recommendedOrder": 28,
-    "note": "",
+    "recommendedOrder": 40,
     "source": "JUNGOL",
     "sourceId": "4115",
     "url": "https://jungol.co.kr/problem/4115?cursor=IjM1IiwyOSwxMA=="
@@ -221,8 +874,7 @@
       "앞뒤 두 번 스캔",
       "가능한 교통량 범위 유지"
     ],
-    "recommendedOrder": 42,
-    "note": "",
+    "recommendedOrder": 55,
     "source": "JUNGOL",
     "sourceId": "4116",
     "url": "https://jungol.co.kr/problem/4116?cursor=IjM1IiwyOSwxMQ=="
@@ -246,8 +898,7 @@
       "모든 세션에서 순서가 유지되는지 검사",
       "이중/삼중 반복문 구조 연습"
     ],
-    "recommendedOrder": 19,
-    "note": "",
+    "recommendedOrder": 24,
     "source": "JUNGOL",
     "sourceId": "5381",
     "url": "https://jungol.co.kr/problem/5381?cursor=IjM1IiwyNyw5"
@@ -272,8 +923,7 @@
       "중복 여부를 set으로 확인",
       "최소 K를 찾는 순차 탐색"
     ],
-    "recommendedOrder": 20,
-    "note": "",
+    "recommendedOrder": 25,
     "source": "JUNGOL",
     "sourceId": "5382",
     "url": "https://jungol.co.kr/problem/5382?cursor=IjM1IiwyNywxMA=="
@@ -298,8 +948,7 @@
       "인접 조건 검증",
       "사전순 첫 정답 유지"
     ],
-    "recommendedOrder": 43,
-    "note": "",
+    "recommendedOrder": 56,
     "source": "JUNGOL",
     "sourceId": "5383",
     "url": "https://jungol.co.kr/problem/5383?cursor=IjM1IiwyNywxMQ=="
@@ -323,8 +972,7 @@
       "공백 출력 조건 처리",
       "문제 지문 그대로 구현"
     ],
-    "recommendedOrder": 3,
-    "note": "",
+    "recommendedOrder": 8,
     "source": "JUNGOL",
     "sourceId": "4150",
     "url": "https://jungol.co.kr/problem/4150?cursor=IjM1IiwyNiw5"
@@ -348,8 +996,7 @@
       "1부터 N까지 중복 없이 사용 확인",
       "가능한 순열 조건 검증"
     ],
-    "recommendedOrder": 29,
-    "note": "",
+    "recommendedOrder": 41,
     "source": "JUNGOL",
     "sourceId": "4151",
     "url": "https://jungol.co.kr/problem/4151?cursor=IjM1IiwyNiwxMA=="
@@ -374,8 +1021,7 @@
       "최소 시간 조건 확인",
       "브레이크 구간을 고려한 시뮬레이션"
     ],
-    "recommendedOrder": 44,
-    "note": "",
+    "recommendedOrder": 57,
     "source": "JUNGOL",
     "sourceId": "4152",
     "url": "https://jungol.co.kr/problem/4152?cursor=IjM1IiwyNiwxMQ=="
@@ -399,8 +1045,7 @@
       "수직/수평 변 조건 확인",
       "면적 두 배 값 계산"
     ],
-    "recommendedOrder": 30,
-    "note": "",
+    "recommendedOrder": 42,
     "source": "JUNGOL",
     "sourceId": "4162",
     "url": "https://jungol.co.kr/problem/4162?cursor=IjM1IiwyNSw5"
@@ -424,8 +1069,7 @@
       "연속된 차이 구간 묶기",
       "문자열 비교 실수 줄이기"
     ],
-    "recommendedOrder": 21,
-    "note": "",
+    "recommendedOrder": 26,
     "source": "JUNGOL",
     "sourceId": "4163",
     "url": "https://jungol.co.kr/problem/4163?cursor=IjM1IiwyNSwxMA=="
@@ -449,8 +1093,7 @@
       "반복 시뮬레이션 최적화",
       "cycle 발견"
     ],
-    "recommendedOrder": 55,
-    "note": "",
+    "recommendedOrder": 71,
     "source": "JUNGOL",
     "sourceId": "4164",
     "url": "https://jungol.co.kr/problem/4164?cursor=IjM1IiwyNSwxMQ=="
@@ -474,8 +1117,7 @@
       "A, B, C 위치 관찰",
       "합 조건으로 C 복원"
     ],
-    "recommendedOrder": 4,
-    "note": "",
+    "recommendedOrder": 9,
     "source": "JUNGOL",
     "sourceId": "5375",
     "url": "https://jungol.co.kr/problem/5375?cursor=IjM1IiwyMyw5"
@@ -499,8 +1141,7 @@
       "평균이 구간 안에 있는지 검사",
       "작은 N에서 O(N^3) 감각 익히기"
     ],
-    "recommendedOrder": 22,
-    "note": "",
+    "recommendedOrder": 27,
     "source": "JUNGOL",
     "sourceId": "5376",
     "url": "https://jungol.co.kr/problem/5376?cursor=IjM1IiwyMywxMA=="
@@ -525,8 +1166,7 @@
       "멈추는 시간 비교",
       "사건 순서에 따른 영향 처리"
     ],
-    "recommendedOrder": 62,
-    "note": "",
+    "recommendedOrder": 84,
     "source": "JUNGOL",
     "sourceId": "5377",
     "url": "https://jungol.co.kr/problem/5377?cursor=IjM1IiwyMywxMQ=="
@@ -551,7 +1191,6 @@
       "문자열 한 번 스캔"
     ],
     "recommendedOrder": 10,
-    "note": "",
     "source": "JUNGOL",
     "sourceId": "5371",
     "url": "https://jungol.co.kr/problem/5371?cursor=IjM1IiwyMiw5"
@@ -576,8 +1215,7 @@
       "그룹 패턴 조건 분석",
       "남는 홀수 처리 케이스 분리"
     ],
-    "recommendedOrder": 45,
-    "note": "",
+    "recommendedOrder": 58,
     "source": "JUNGOL",
     "sourceId": "5372",
     "url": "https://jungol.co.kr/problem/5372?cursor=IjM1IiwyMiwxMA=="
@@ -602,8 +1240,7 @@
       "각 소가 들어갈 수 있는 마구간 수 계산",
       "곱셈 원리 적용"
     ],
-    "recommendedOrder": 31,
-    "note": "",
+    "recommendedOrder": 43,
     "source": "JUNGOL",
     "sourceId": "5373",
     "url": "https://jungol.co.kr/problem/5373?cursor=IjM1IiwyMiwxMQ=="
@@ -628,8 +1265,7 @@
       "기준 소로부터 상대 연도 계산",
       "문장 입력 파싱"
     ],
-    "recommendedOrder": 32,
-    "note": "",
+    "recommendedOrder": 44,
     "source": "JUNGOL",
     "sourceId": "5361",
     "url": "https://jungol.co.kr/problem/5361?cursor=IjM1IiwyMSw5"
@@ -654,8 +1290,7 @@
       "추가 전후 영향받는 칸만 검사",
       "좌표 범위 여유 있게 잡기"
     ],
-    "recommendedOrder": 56,
-    "note": "",
+    "recommendedOrder": 72,
     "source": "JUNGOL",
     "sourceId": "5362",
     "url": "https://jungol.co.kr/problem/5362?cursor=IjM1IiwyMSwxMA=="
@@ -680,8 +1315,7 @@
       "경로의 방향성을 문자로 판단",
       "여러 테스트 케이스 처리"
     ],
-    "recommendedOrder": 33,
-    "note": "",
+    "recommendedOrder": 45,
     "source": "JUNGOL",
     "sourceId": "5363",
     "url": "https://jungol.co.kr/problem/5363?cursor=IjM1IiwyMSwxMQ=="
@@ -705,8 +1339,7 @@
       "외로운 사진 조건을 구간 길이로 계산",
       "중복 카운팅 피하기"
     ],
-    "recommendedOrder": 57,
-    "note": "",
+    "recommendedOrder": 73,
     "source": "JUNGOL",
     "sourceId": "5350",
     "url": "https://jungol.co.kr/problem/5350?cursor=IjM1IiwxOSw5"
@@ -730,8 +1363,7 @@
       "연속 구간의 증감량 묶기",
       "필요한 작업 수 누적"
     ],
-    "recommendedOrder": 46,
-    "note": "",
+    "recommendedOrder": 59,
     "source": "JUNGOL",
     "sourceId": "5351",
     "url": "https://jungol.co.kr/problem/5351?cursor=IjM1IiwxOSwxMA=="
@@ -756,8 +1388,7 @@
       "방향 전환 횟수 관리",
       "작은 격자에서 모든 경로 세기"
     ],
-    "recommendedOrder": 58,
-    "note": "",
+    "recommendedOrder": 74,
     "source": "JUNGOL",
     "sourceId": "5352",
     "url": "https://jungol.co.kr/problem/5352?cursor=IjM1IiwxOSwxMQ=="
@@ -782,7 +1413,6 @@
       "초록/노랑 판정 분리"
     ],
     "recommendedOrder": 11,
-    "note": "",
     "source": "JUNGOL",
     "sourceId": "5344",
     "url": "https://jungol.co.kr/problem/5344?cursor=IjM1IiwxOCw5"
@@ -807,8 +1437,7 @@
       "가능한 세 번째 주사위 전부 생성",
       "비추이 조건 판정"
     ],
-    "recommendedOrder": 59,
-    "note": "",
+    "recommendedOrder": 75,
     "source": "JUNGOL",
     "sourceId": "5345",
     "url": "https://jungol.co.kr/problem/5345?cursor=IjM1IiwxOCwxMA=="
@@ -833,8 +1462,7 @@
       "왼쪽부터 필요한 만큼 처리",
       "불가능 조건과 음수 체크"
     ],
-    "recommendedOrder": 63,
-    "note": "",
+    "recommendedOrder": 85,
     "source": "JUNGOL",
     "sourceId": "5346",
     "url": "https://jungol.co.kr/problem/5346?cursor=IjM1IiwxOCwxMQ=="
@@ -859,8 +1487,7 @@
       "누적합으로 구간을 맞추기",
       "최소 합치기 횟수 계산"
     ],
-    "recommendedOrder": 47,
-    "note": "",
+    "recommendedOrder": 60,
     "source": "JUNGOL",
     "sourceId": "5332",
     "url": "https://jungol.co.kr/problem/5332?cursor=IjM1IiwxNyw4"
@@ -884,8 +1511,7 @@
       "이미 맞출 수 있는 소 건너뛰기",
       "필요 이동 횟수 관찰"
     ],
-    "recommendedOrder": 60,
-    "note": "",
+    "recommendedOrder": 76,
     "source": "JUNGOL",
     "sourceId": "5333",
     "url": "https://jungol.co.kr/problem/5333?cursor=IjM1IiwxNyw5"
@@ -910,8 +1536,7 @@
       "문자열 길이와 문자 종류를 함께 판단",
       "불가능한 패턴을 먼저 제거"
     ],
-    "recommendedOrder": 64,
-    "note": "",
+    "recommendedOrder": 86,
     "source": "JUNGOL",
     "sourceId": "5334",
     "url": "https://jungol.co.kr/problem/5334?cursor=IjM1IiwxNywxMA=="
@@ -936,8 +1561,7 @@
       "가격별 수익 계산",
       "동점일 때 낮은 가격 선택"
     ],
-    "recommendedOrder": 23,
-    "note": "",
+    "recommendedOrder": 28,
     "source": "JUNGOL",
     "sourceId": "5404",
     "url": "https://jungol.co.kr/problem/5404?cursor=IjM1IiwxNSw5"
@@ -962,8 +1586,7 @@
       "가능한 오른쪽 위치에 먹이 배치",
       "G/H를 따로 관리"
     ],
-    "recommendedOrder": 48,
-    "note": "",
+    "recommendedOrder": 61,
     "source": "JUNGOL",
     "sourceId": "5405",
     "url": "https://jungol.co.kr/problem/5405?cursor=IjM1IiwxNSwxMA=="
@@ -987,8 +1610,7 @@
       "결과를 결정하는 변수를 찾기",
       "진행이 멈추면 불가능 처리"
     ],
-    "recommendedOrder": 65,
-    "note": "",
+    "recommendedOrder": 87,
     "source": "JUNGOL",
     "sourceId": "5406",
     "url": "https://jungol.co.kr/problem/5406?cursor=IjM1IiwxNSwxMQ=="
@@ -1013,8 +1635,7 @@
       "리더가 커버해야 하는 범위 확인",
       "쌍을 세는 조건 정리"
     ],
-    "recommendedOrder": 49,
-    "note": "",
+    "recommendedOrder": 62,
     "source": "JUNGOL",
     "sourceId": "5466",
     "url": "https://jungol.co.kr/problem/5466?cursor=IjM1IiwxNCw5"
@@ -1038,8 +1659,7 @@
       "구간별 냉방량 누적",
       "비용 최솟값 갱신"
     ],
-    "recommendedOrder": 61,
-    "note": "",
+    "recommendedOrder": 77,
     "source": "JUNGOL",
     "sourceId": "5467",
     "url": "https://jungol.co.kr/problem/5467?cursor=IjM1IiwxNCwxMA=="
@@ -1064,8 +1684,7 @@
       "길이에 따른 삭제 횟수 계산",
       "불가능 문자열 빠르게 판정"
     ],
-    "recommendedOrder": 50,
-    "note": "",
+    "recommendedOrder": 63,
     "source": "JUNGOL",
     "sourceId": "5468",
     "url": "https://jungol.co.kr/problem/5468?cursor=IjM1IiwxNCwxMQ=="
@@ -1090,8 +1709,7 @@
       "먹을 수 있는 기간을 한 번에 계산",
       "남은 건초량 관리"
     ],
-    "recommendedOrder": 51,
-    "note": "",
+    "recommendedOrder": 64,
     "source": "JUNGOL",
     "sourceId": "5498",
     "url": "https://jungol.co.kr/problem/5498?cursor=IjM1IiwxMyw5"
@@ -1116,8 +1734,7 @@
       "찍을 수 있는 위치를 모두 시도",
       "목표 격자와 결과 격자 비교"
     ],
-    "recommendedOrder": 66,
-    "note": "",
+    "recommendedOrder": 88,
     "source": "JUNGOL",
     "sourceId": "5499",
     "url": "https://jungol.co.kr/problem/5499?cursor=IjM1IiwxMywxMA=="
@@ -1141,8 +1758,7 @@
       "새 구독 시작 비용과 유지 비용 선택",
       "long long 범위 주의"
     ],
-    "recommendedOrder": 67,
-    "note": "",
+    "recommendedOrder": 78,
     "source": "JUNGOL",
     "sourceId": "5500",
     "url": "https://jungol.co.kr/problem/5500?cursor=IjM1IiwxMywxMQ=="
@@ -1167,7 +1783,6 @@
       "큰 수 자료형 사용"
     ],
     "recommendedOrder": 12,
-    "note": "",
     "source": "JUNGOL",
     "sourceId": "6070",
     "url": "https://jungol.co.kr/problem/6070?cursor=IjM1IiwxMSw5"
@@ -1191,8 +1806,7 @@
       "가능한 최소 시작 감염 수 계산",
       "양끝 구간과 내부 구간 구분"
     ],
-    "recommendedOrder": 68,
-    "note": "",
+    "recommendedOrder": 79,
     "source": "JUNGOL",
     "sourceId": "6071",
     "url": "https://jungol.co.kr/problem/6071?cursor=IjM1IiwxMSwxMA=="
@@ -1217,8 +1831,7 @@
       "날짜 범위의 교집합 계산",
       "불가능한 순서 판정"
     ],
-    "recommendedOrder": 69,
-    "note": "",
+    "recommendedOrder": 89,
     "source": "JUNGOL",
     "sourceId": "6072",
     "url": "https://jungol.co.kr/problem/6072?cursor=IjM1IiwxMSwxMQ=="
@@ -1242,8 +1855,7 @@
       "가능한 다수 의견 표시",
       "정렬된 출력 처리"
     ],
-    "recommendedOrder": 34,
-    "note": "",
+    "recommendedOrder": 46,
     "source": "JUNGOL",
     "sourceId": "6213",
     "url": "https://jungol.co.kr/problem/6213?cursor=IjM1IiwxMCw5"
@@ -1267,8 +1879,7 @@
       "같은 상태 반복 감지",
       "타깃 깨짐 조건 구현"
     ],
-    "recommendedOrder": 52,
-    "note": "",
+    "recommendedOrder": 65,
     "source": "JUNGOL",
     "sourceId": "6214",
     "url": "https://jungol.co.kr/problem/6214?cursor=IjM1IiwxMCwxMA=="
@@ -1293,8 +1904,7 @@
       "이전 연산의 누적 영향 추적",
       "큰 수와 부호 관리"
     ],
-    "recommendedOrder": 70,
-    "note": "",
+    "recommendedOrder": 95,
     "source": "JUNGOL",
     "sourceId": "6215",
     "url": "https://jungol.co.kr/problem/6215?cursor=IjM1IiwxMCwxMQ=="
@@ -1320,7 +1930,6 @@
       "여러 테스트 케이스 빠르게 처리"
     ],
     "recommendedOrder": 13,
-    "note": "",
     "source": "JUNGOL",
     "sourceId": "8141",
     "url": "https://jungol.co.kr/problem/8141?cursor=IjM1Iiw5LDk="
@@ -1344,8 +1953,7 @@
       "반복 후 총량 변화 관찰",
       "효율적인 누적 계산"
     ],
-    "recommendedOrder": 71,
-    "note": "",
+    "recommendedOrder": 90,
     "source": "JUNGOL",
     "sourceId": "8140",
     "url": "https://jungol.co.kr/problem/8140?cursor=IjM1Iiw5LDEw"
@@ -1370,8 +1978,7 @@
       "가능한 선택 수 계산",
       "최대값 갱신 조건 점검"
     ],
-    "recommendedOrder": 72,
-    "note": "",
+    "recommendedOrder": 80,
     "source": "JUNGOL",
     "sourceId": "8139",
     "url": "https://jungol.co.kr/problem/8139?cursor=IjM1Iiw5LDEx"
@@ -1395,8 +2002,7 @@
       "직접 반올림과 연쇄 반올림 비교",
       "10의 거듭제곱 다루기"
     ],
-    "recommendedOrder": 24,
-    "note": "",
+    "recommendedOrder": 29,
     "source": "JUNGOL",
     "sourceId": "8176",
     "url": "https://jungol.co.kr/problem/8176?cursor=IjM1Iiw3LDk="
@@ -1421,8 +2027,7 @@
       "줄이 완성되는 순간 세기",
       "좌표별 카운터 업데이트"
     ],
-    "recommendedOrder": 53,
-    "note": "",
+    "recommendedOrder": 66,
     "source": "JUNGOL",
     "sourceId": "8177",
     "url": "https://jungol.co.kr/problem/8177?cursor=IjM1Iiw3LDEw"
@@ -1447,8 +2052,7 @@
       "문자별 빈도와 위치 확인",
       "중복 결과를 집합으로 관리"
     ],
-    "recommendedOrder": 54,
-    "note": "",
+    "recommendedOrder": 67,
     "source": "JUNGOL",
     "sourceId": "8178",
     "url": "https://jungol.co.kr/problem/8178?cursor=IjM1Iiw3LDEx"
@@ -1473,8 +2077,7 @@
       "별이 가능한 위치 판정",
       "불가능한 칸 조합 제거"
     ],
-    "recommendedOrder": 35,
-    "note": "",
+    "recommendedOrder": 68,
     "source": "JUNGOL",
     "sourceId": "8255",
     "url": "https://jungol.co.kr/problem/8255?cursor=IjM1Iiw2LDk="
@@ -1499,8 +2102,7 @@
       "패턴 후보를 집합으로 관리",
       "빈도 기준을 만족하는 결과 출력"
     ],
-    "recommendedOrder": 36,
-    "note": "",
+    "recommendedOrder": 81,
     "source": "JUNGOL",
     "sourceId": "8256",
     "url": "https://jungol.co.kr/problem/8256?cursor=IjM1Iiw2LDEw"
@@ -1525,8 +2127,7 @@
       "뒤집기 전후 영향을 누적",
       "중복되는 기여를 정리"
     ],
-    "recommendedOrder": 37,
-    "note": "",
+    "recommendedOrder": 91,
     "source": "JUNGOL",
     "sourceId": "8257",
     "url": "https://jungol.co.kr/problem/8257?cursor=IjM1Iiw2LDEx"
@@ -1550,8 +2151,7 @@
       "대칭되는 점 존재 확인",
       "좌표 합을 이용한 비교"
     ],
-    "recommendedOrder": 38,
-    "note": "",
+    "recommendedOrder": 47,
     "source": "JUNGOL",
     "sourceId": "8308",
     "url": "https://jungol.co.kr/problem/8308?cursor=IjM1Iiw1LDk="
@@ -1576,8 +2176,7 @@
       "빈도 배열로 가능한 값 추적",
       "작은 값부터 조건 갱신"
     ],
-    "recommendedOrder": 39,
-    "note": "",
+    "recommendedOrder": 92,
     "source": "JUNGOL",
     "sourceId": "8309",
     "url": "https://jungol.co.kr/problem/8309?cursor=IjM1Iiw1LDEw"
@@ -1602,8 +2201,7 @@
       "구성 불가능 케이스 제거",
       "수열을 직접 만들어 검증"
     ],
-    "recommendedOrder": 40,
-    "note": "",
+    "recommendedOrder": 96,
     "source": "JUNGOL",
     "sourceId": "8310",
     "url": "https://jungol.co.kr/problem/8310?cursor=IjM1Iiw1LDEx"
@@ -1628,8 +2226,7 @@
       "남는 칩 수를 관리",
       "최대 교환 횟수 계산"
     ],
-    "recommendedOrder": 25,
-    "note": "",
+    "recommendedOrder": 30,
     "source": "JUNGOL",
     "sourceId": "8840",
     "url": "https://jungol.co.kr/problem/8840?cursor=IjM1IiwzLDk="
@@ -1654,8 +2251,7 @@
       "나눌 수 있는 기준점 탐색",
       "구간별 조합 수 계산"
     ],
-    "recommendedOrder": 26,
-    "note": "",
+    "recommendedOrder": 82,
     "source": "JUNGOL",
     "sourceId": "8841",
     "url": "https://jungol.co.kr/problem/8841?cursor=IjM1IiwzLDEw"
@@ -1679,8 +2275,7 @@
       "중복되는 제목 문제와 구분",
       "가능한 시작값을 제한해 탐색"
     ],
-    "recommendedOrder": 8,
-    "note": "",
+    "recommendedOrder": 93,
     "source": "JUNGOL",
     "sourceId": "8842",
     "url": "https://jungol.co.kr/problem/8842?cursor=IjM1IiwzLDEx"
@@ -1705,8 +2300,7 @@
       "중복 후보를 set으로 제거",
       "빈도 조건에 맞게 정렬 출력"
     ],
-    "recommendedOrder": 14,
-    "note": "",
+    "recommendedOrder": 48,
     "source": "JUNGOL",
     "sourceId": "8928",
     "url": "https://jungol.co.kr/problem/8928?cursor=IjM1IiwyLDg="
@@ -1731,8 +2325,7 @@
       "시작점과 방향을 모두 시도",
       "범위 밖 접근 방지"
     ],
-    "recommendedOrder": 15,
-    "note": "",
+    "recommendedOrder": 83,
     "source": "JUNGOL",
     "sourceId": "8929",
     "url": "https://jungol.co.kr/problem/8929?cursor=IjM1IiwyLDk="
@@ -1757,86 +2350,9 @@
       "필요량을 채울 때까지 선택",
       "비용 합을 큰 수로 관리"
     ],
-    "recommendedOrder": 9,
-    "note": "",
+    "recommendedOrder": 94,
     "source": "JUNGOL",
     "sourceId": "8930",
     "url": "https://jungol.co.kr/problem/8930?cursor=IjM1IiwyLDEw"
-  },
-  {
-    "id": "2026-third-bronze-1",
-    "season": "2026",
-    "contest": "Third",
-    "contestLabel": "2026 Third Contest",
-    "division": "Bronze",
-    "number": 1,
-    "title": "Make All Distinct",
-    "types": [
-      "자료구조",
-      "카운팅",
-      "그리디"
-    ],
-    "difficultyLevel": 3,
-    "difficultyName": "Radiant",
-    "practicePoints": [
-      "중복 값의 개수 세기",
-      "유일하게 만들기 위한 제거/변경 횟수 계산",
-      "빈도 배열과 set 활용"
-    ],
-    "recommendedOrder": 5,
-    "note": "",
-    "source": "JUNGOL",
-    "sourceId": "11759",
-    "url": "https://jungol.co.kr/problem/11759?cursor=IjM1IiwxLDA="
-  },
-  {
-    "id": "2026-third-bronze-2",
-    "season": "2026",
-    "contest": "Third",
-    "contestLabel": "2026 Third Contest",
-    "division": "Bronze",
-    "number": 2,
-    "title": "Strange Function",
-    "types": [
-      "수학",
-      "애드혹"
-    ],
-    "difficultyLevel": 7,
-    "difficultyName": "Yonder",
-    "practicePoints": [
-      "함수 값의 패턴 찾기",
-      "작은 입력으로 규칙 검증",
-      "나머지와 범위 조건 분리"
-    ],
-    "recommendedOrder": 6,
-    "note": "",
-    "source": "JUNGOL",
-    "sourceId": "11760",
-    "url": "https://jungol.co.kr/problem/11760?cursor=IjM1IiwxLDE="
-  },
-  {
-    "id": "2026-third-bronze-3",
-    "season": "2026",
-    "contest": "Third",
-    "contestLabel": "2026 Third Contest",
-    "division": "Bronze",
-    "number": 3,
-    "title": "Swap to Win",
-    "types": [
-      "그리디",
-      "완전탐색"
-    ],
-    "difficultyLevel": 7,
-    "difficultyName": "Yonder",
-    "practicePoints": [
-      "한 번의 swap 후보를 제한해 탐색",
-      "승리 조건 변화량 계산",
-      "최적 교환을 고르는 기준 정리"
-    ],
-    "recommendedOrder": 7,
-    "note": "",
-    "source": "JUNGOL",
-    "sourceId": "11761",
-    "url": "https://jungol.co.kr/problem/11761?cursor=IjM1IiwxLDI="
   }
 ]

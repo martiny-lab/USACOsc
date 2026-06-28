@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Martiny's USACO Space Center">
     <title>Martiny's USACO Space Center</title>
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("martiny-usaco-theme") || "dark";
+    </script>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
   </head>
@@ -27,7 +30,10 @@
         </div>
       </a>
 
-      <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">필터 열기</button>
+      <div class="top-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button">라이트 모드</button>
+        <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">필터 열기</button>
+      </div>
     </header>
 
     <main class="app-shell" id="app-shell">
@@ -56,14 +62,6 @@
             <select id="difficulty-filter"></select>
           </label>
           <label>
-            완료
-            <select id="progress-filter">
-              <option value="all">전체</option>
-              <option value="todo">미완료</option>
-              <option value="done">완료</option>
-            </select>
-          </label>
-          <label>
             유형 조건
             <select id="type-mode">
               <option value="or">OR</option>
@@ -77,7 +75,6 @@
               <option value="season">시즌순</option>
               <option value="difficulty">난이도순</option>
               <option value="title">이름순</option>
-              <option value="unfinished">미완료 먼저</option>
             </select>
           </label>
         </div>
