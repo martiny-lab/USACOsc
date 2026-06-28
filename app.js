@@ -256,7 +256,7 @@ function sortProblems() {
 }
 
 function seasonKey(problem) {
-  const contestOrder = ["Dec", "Jan", "Feb", "First", "Second"];
+  const contestOrder = ["Dec", "Jan", "Feb"];
   const seasonStart = Number(String(problem.season).slice(0, 4));
   return seasonStart * 100 + contestOrder.indexOf(problem.contest) * 10 + problem.number;
 }
@@ -399,11 +399,9 @@ function contestOptions() {
   const labels = {
     Dec: "Dec",
     Jan: "Jan",
-    Feb: "Feb",
-    First: "First",
-    Second: "Second"
+    Feb: "Feb"
   };
-  const order = ["Dec", "Jan", "Feb", "First", "Second"];
+  const order = ["Dec", "Jan", "Feb"];
   const available = new Set(state.problems.map((problem) => problem.contest));
   return order
     .filter((contest) => available.has(contest))
@@ -436,7 +434,7 @@ function sortTypes(types) {
 function setupStarMap() {
   const canvas = document.getElementById("star-map");
   const ctx = canvas.getContext("2d");
-  const stars = Array.from({ length: 72 }, (_, index) => ({
+  const stars = Array.from({ length: 96 }, (_, index) => ({
     x: (Math.sin(index * 33.7) + 1) / 2,
     y: (Math.cos(index * 19.3) + 1) / 2,
     r: index % 8 === 0 ? 2.2 : 0.9 + (index % 5) * 0.24,
