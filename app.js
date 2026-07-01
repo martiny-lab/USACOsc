@@ -1,4 +1,8 @@
 const THEME_KEY = "martiny-usaco-theme";
+const FAVICON_BY_THEME = {
+  dark: "assets/favicon-dark-32.png",
+  light: "assets/favicon-light-32.png"
+};
 
 const DIFFICULTIES = {
   1: "Meteor",
@@ -416,6 +420,10 @@ function setupTheme() {
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem(THEME_KEY, theme);
+  const favicon = document.getElementById("theme-favicon");
+  if (favicon) {
+    favicon.href = FAVICON_BY_THEME[theme] || FAVICON_BY_THEME.dark;
+  }
   if (els.themeToggle) {
     els.themeToggle.textContent = theme === "light" ? "다크 모드" : "라이트 모드";
     els.themeToggle.setAttribute("aria-label", `${theme === "light" ? "다크" : "라이트"} 모드로 전환`);
