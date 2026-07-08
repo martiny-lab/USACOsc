@@ -1,0 +1,673 @@
+{
+  "2017-dec-bronze-1": {
+    "types": [
+      "구현",
+      "좌표/기하",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 2
+  },
+  "2017-dec-bronze-2": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "배열"
+    ],
+    "difficultyLevel": 2
+  },
+  "2017-dec-bronze-3": {
+    "types": [
+      "시뮬레이션",
+      "정렬",
+      "집합/맵",
+      "카운팅"
+    ],
+    "difficultyLevel": 4
+  },
+  "2018-dec-bronze-1": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "배열"
+    ],
+    "difficultyLevel": 1
+  },
+  "2018-dec-bronze-2": {
+    "types": [
+      "카운팅",
+      "누적합",
+      "시뮬레이션",
+      "배열"
+    ],
+    "difficultyLevel": 2
+  },
+  "2018-dec-bronze-3": {
+    "types": [
+      "완전탐색",
+      "시뮬레이션",
+      "자료구조"
+    ],
+    "difficultyLevel": 3
+  },
+  "2018-feb-bronze-1": {
+    "types": [
+      "완전탐색",
+      "수학/관찰",
+      "구현"
+    ],
+    "difficultyLevel": 3
+  },
+  "2018-feb-bronze-2": {
+    "types": [
+      "정렬",
+      "시뮬레이션",
+      "카운팅",
+      "그래프/탐색",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 5
+  },
+  "2018-feb-bronze-3": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "카운팅",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2018-jan-bronze-1": {
+    "types": [
+      "구현",
+      "좌표/기하",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2018-jan-bronze-2": {
+    "types": [
+      "완전탐색",
+      "카운팅",
+      "구간",
+      "배열"
+    ],
+    "difficultyLevel": 3
+  },
+  "2018-jan-bronze-3": {
+    "types": [
+      "정렬",
+      "카운팅",
+      "배열"
+    ],
+    "difficultyLevel": 2
+  },
+  "2019-dec-bronze-1": {
+    "types": [
+      "완전탐색",
+      "카운팅",
+      "배열"
+    ],
+    "difficultyLevel": 3
+  },
+  "2019-dec-bronze-2": {
+    "types": [
+      "완전탐색",
+      "문자열",
+      "자료구조",
+      "집합/맵"
+    ],
+    "difficultyLevel": 2
+  },
+  "2019-dec-bronze-3": {
+    "types": [
+      "완전탐색",
+      "정렬",
+      "문자열",
+      "자료구조",
+      "구현"
+    ],
+    "difficultyLevel": 3
+  },
+  "2019-feb-bronze-1": {
+    "types": [
+      "정렬",
+      "수학/관찰",
+      "구현"
+    ],
+    "difficultyLevel": 4
+  },
+  "2019-feb-bronze-2": {
+    "types": [
+      "그리디",
+      "그래프/색칠",
+      "구현",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2019-feb-bronze-3": {
+    "types": [
+      "시뮬레이션",
+      "구간",
+      "수학/관찰",
+      "구현"
+    ],
+    "difficultyLevel": 4
+  },
+  "2019-jan-bronze-1": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "완전탐색"
+    ],
+    "difficultyLevel": 2
+  },
+  "2019-jan-bronze-2": {
+    "types": [
+      "그리디",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2019-jan-bronze-3": {
+    "types": [
+      "완전탐색",
+      "문자열",
+      "자료구조",
+      "집합/맵"
+    ],
+    "difficultyLevel": 3
+  },
+  "2020-dec-bronze-1": {
+    "types": [
+      "정렬",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 2
+  },
+  "2020-dec-bronze-2": {
+    "types": [
+      "완전탐색",
+      "구현",
+      "배열"
+    ],
+    "difficultyLevel": 3
+  },
+  "2020-dec-bronze-3": {
+    "types": [
+      "시뮬레이션",
+      "완전탐색",
+      "정렬",
+      "좌표/기하",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 5
+  },
+  "2020-feb-bronze-1": {
+    "types": [
+      "완전탐색",
+      "좌표/기하",
+      "배열"
+    ],
+    "difficultyLevel": 3
+  },
+  "2020-feb-bronze-2": {
+    "types": [
+      "그리디",
+      "문자열",
+      "카운팅"
+    ],
+    "difficultyLevel": 3
+  },
+  "2020-feb-bronze-3": {
+    "types": [
+      "시뮬레이션",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 5
+  },
+  "2020-jan-bronze-1": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "문자열"
+    ],
+    "difficultyLevel": 1
+  },
+  "2020-jan-bronze-2": {
+    "types": [
+      "완전탐색",
+      "구현",
+      "배열",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 3
+  },
+  "2020-jan-bronze-3": {
+    "types": [
+      "시뮬레이션",
+      "그리디",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2021-dec-bronze-1": {
+    "types": [
+      "카운팅",
+      "문자열",
+      "배열",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 6
+  },
+  "2021-dec-bronze-2": {
+    "types": [
+      "그리디",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 5
+  },
+  "2021-dec-bronze-3": {
+    "types": [
+      "동적 계획법",
+      "격자",
+      "시뮬레이션",
+      "배열"
+    ],
+    "difficultyLevel": 5
+  },
+  "2021-feb-bronze-1": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "문자열",
+      "집합/맵",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 3
+  },
+  "2021-feb-bronze-2": {
+    "types": [
+      "시뮬레이션",
+      "카운팅",
+      "배열",
+      "격자"
+    ],
+    "difficultyLevel": 4
+  },
+  "2021-feb-bronze-3": {
+    "types": [
+      "시뮬레이션",
+      "문자열",
+      "좌표/기하",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 3
+  },
+  "2021-jan-bronze-1": {
+    "types": [
+      "구현",
+      "문자열",
+      "배열",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 2
+  },
+  "2021-jan-bronze-2": {
+    "types": [
+      "그리디",
+      "카운팅",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2021-jan-bronze-3": {
+    "types": [
+      "그리디",
+      "정렬",
+      "카운팅"
+    ],
+    "difficultyLevel": 3
+  },
+  "2022-dec-bronze-1": {
+    "types": [
+      "정렬",
+      "그리디",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 3
+  },
+  "2022-dec-bronze-2": {
+    "types": [
+      "그리디",
+      "문자열",
+      "구성",
+      "시뮬레이션"
+    ],
+    "difficultyLevel": 5
+  },
+  "2022-dec-bronze-3": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "완전탐색",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 5
+  },
+  "2022-feb-bronze-1": {
+    "types": [
+      "완전탐색",
+      "수학/관찰",
+      "누적합",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2022-feb-bronze-2": {
+    "types": [
+      "그리디",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2022-feb-bronze-3": {
+    "types": [
+      "문자열",
+      "완전탐색",
+      "재귀",
+      "백트래킹"
+    ],
+    "difficultyLevel": 4
+  },
+  "2022-jan-bronze-1": {
+    "types": [
+      "구현",
+      "카운팅",
+      "문자열",
+      "배열"
+    ],
+    "difficultyLevel": 2
+  },
+  "2022-jan-bronze-2": {
+    "types": [
+      "완전탐색",
+      "구현",
+      "카운팅"
+    ],
+    "difficultyLevel": 4
+  },
+  "2022-jan-bronze-3": {
+    "types": [
+      "그리디",
+      "수학/관찰",
+      "시뮬레이션"
+    ],
+    "difficultyLevel": 6
+  },
+  "2023-dec-bronze-1": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "배열"
+    ],
+    "difficultyLevel": 2
+  },
+  "2023-dec-bronze-2": {
+    "types": [
+      "문자열",
+      "카운팅",
+      "수학/관찰",
+      "그리디"
+    ],
+    "difficultyLevel": 5
+  },
+  "2023-dec-bronze-3": {
+    "types": [
+      "수학/관찰",
+      "배열",
+      "구현"
+    ],
+    "difficultyLevel": 6
+  },
+  "2023-feb-bronze-1": {
+    "types": [
+      "시뮬레이션",
+      "그리디",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2023-feb-bronze-2": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "완전탐색",
+      "배열",
+      "격자"
+    ],
+    "difficultyLevel": 5
+  },
+  "2023-feb-bronze-3": {
+    "types": [
+      "그리디",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2023-jan-bronze-1": {
+    "types": [
+      "문자열",
+      "배열",
+      "카운팅",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2023-jan-bronze-2": {
+    "types": [
+      "완전탐색",
+      "시뮬레이션",
+      "배열",
+      "비트마스크"
+    ],
+    "difficultyLevel": 3
+  },
+  "2023-jan-bronze-3": {
+    "types": [
+      "그리디",
+      "문자열",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2024-dec-bronze-1": {
+    "types": [
+      "수학/관찰",
+      "구현"
+    ],
+    "difficultyLevel": 4
+  },
+  "2024-dec-bronze-2": {
+    "types": [
+      "시뮬레이션",
+      "카운팅",
+      "배열",
+      "격자",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2024-dec-bronze-3": {
+    "types": [
+      "완전탐색",
+      "카운팅",
+      "문자열",
+      "시뮬레이션"
+    ],
+    "difficultyLevel": 5
+  },
+  "2024-feb-bronze-1": {
+    "types": [
+      "문자열",
+      "수학/관찰",
+      "게임 이론"
+    ],
+    "difficultyLevel": 4
+  },
+  "2024-feb-bronze-2": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 5
+  },
+  "2024-feb-bronze-3": {
+    "types": [
+      "정렬",
+      "이분 탐색",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2024-jan-bronze-1": {
+    "types": [
+      "구현",
+      "배열",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2024-jan-bronze-2": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "자료구조",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2024-jan-bronze-3": {
+    "types": [
+      "수학/관찰",
+      "차분",
+      "구현"
+    ],
+    "difficultyLevel": 6
+  },
+  "2025-feb-bronze-1": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "수학/관찰",
+      "좌표/기하",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2025-feb-bronze-2": {
+    "types": [
+      "카운팅",
+      "그리디",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2025-feb-bronze-3": {
+    "types": [
+      "수학/관찰",
+      "동적 계획법",
+      "배열",
+      "구현"
+    ],
+    "difficultyLevel": 6
+  },
+  "2025-jan-bronze-1": {
+    "types": [
+      "구현",
+      "동적 계획법",
+      "수학/관찰",
+      "격자"
+    ],
+    "difficultyLevel": 4
+  },
+  "2025-jan-bronze-2": {
+    "types": [
+      "카운팅",
+      "배열",
+      "수학/관찰",
+      "누적합"
+    ],
+    "difficultyLevel": 5
+  },
+  "2025-jan-bronze-3": {
+    "types": [
+      "완전탐색",
+      "누적합",
+      "카운팅",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 6
+  },
+  "2026-feb-bronze-1": {
+    "types": [
+      "문자열",
+      "구현",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 4
+  },
+  "2026-feb-bronze-2": {
+    "types": [
+      "비트마스크",
+      "부분집합 DP",
+      "완전탐색",
+      "문자열"
+    ],
+    "difficultyLevel": 5
+  },
+  "2026-feb-bronze-3": {
+    "types": [
+      "그리디",
+      "수학/관찰",
+      "배열"
+    ],
+    "difficultyLevel": 4
+  },
+  "2026-jan-bronze-1": {
+    "types": [
+      "수학/관찰",
+      "이분 탐색",
+      "구현"
+    ],
+    "difficultyLevel": 6
+  },
+  "2026-jan-bronze-2": {
+    "types": [
+      "문자열",
+      "카운팅",
+      "수학/관찰",
+      "구현"
+    ],
+    "difficultyLevel": 4
+  },
+  "2026-jan-bronze-3": {
+    "types": [
+      "구현",
+      "시뮬레이션",
+      "배열",
+      "수학/관찰"
+    ],
+    "difficultyLevel": 5
+  }
+}

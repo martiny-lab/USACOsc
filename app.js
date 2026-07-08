@@ -1,49 +1,28 @@
-const THEME_KEY = "martiny-usaco-theme";
-const FAVICON_BY_THEME = {
-  dark: "assets/favicon-dark-32.png",
-  light: "assets/favicon-light-32.png"
+const MONTH_LABELS = {
+  Dec: "Dec",
+  Jan: "Jan",
+  Feb: "Feb"
 };
 
-const DIFFICULTIES = {
-  1: "Meteor",
-  2: "Aurora",
-  3: "Radiant",
-  4: "Twilight",
-  5: "Interstellar",
-  6: "Nebula",
-  7: "Yonder"
+const MONTH_ORDER = {
+  Dec: 0,
+  Jan: 1,
+  Feb: 2
 };
 
-const TYPE_ORDER = [
-  "구현",
-  "시뮬레이션",
-  "완전탐색",
-  "그리디",
-  "정렬",
-  "카운팅",
-  "문자열",
-  "수학",
-  "누적합",
-  "차이 배열",
-  "자료구조",
-  "그래프",
-  "격자",
-  "기하",
-  "구성",
-  "애드혹"
-];
+const LAYOUT_KEY = "martins-usaco-public-layout-v1";
 
 const state = {
   problems: [],
-  filtered: [],
-  selectedTypes: new Set(),
+  exams: [],
+  filteredExams: [],
+  selectedExamKey: "",
+  selectedContest: "Dec",
   filters: {
     search: "",
     season: "all",
     contest: "all",
-    difficulty: "all",
-    typeMode: "or",
-    sort: "recommended"
+    type: "all"
   }
 };
 
@@ -51,47 +30,45 @@ const els = {};
 
 document.addEventListener("DOMContentLoaded", async () => {
   bindElements();
-  setupTheme();
-  setupStarMap();
   bindEvents();
 
   try {
-    const response = await fetch("problems.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
-    if (!Array.isArray(data) || data.length === 0) throw new Error("Problem data is empty.");
+    const [problemsRes, classificationsRes] = await Promise.all([
+      fetch("problems.json", { cache: "no-store" }),
+      fetch("problem-classifications.json", { cache: "no-store" })
+    ]);
 
-    state.problems = data;
-    console.log("Loaded problems:", state.problems.length);
-    buildControls();
+    if (!problemsRes.ok) throw new Error("Problem data could not be loaded.");
+    const problems = await problemsRes.json();
+    const classifications = classificationsRes.ok ? await classificationsRes.json() : {};
+
+    state.problems = problems
+      .filter(isCurrentProblem)
+      .map((problem) => withClassification(problem, classifications[problem.id]));
+    state.exams = buildExams(state.problems);
+
+    fillControls();
+    syncFromHash();
     applyFilters();
   } catch (error) {
-    console.error("Failed to load problem data:", error);
-    els.statusText.textContent = "문제 데이터 로딩 실패";
+    console.error(error);
     els.loadError.hidden = false;
   }
 });
 
 function bindElements() {
   [
-    "app-shell",
-    "filter-panel",
-    "filter-toggle",
+    "desk-shell",
     "search-input",
-    "type-search",
     "season-filter",
     "contest-filter",
-    "difficulty-filter",
-    "type-mode",
-    "sort-order",
-    "theme-toggle",
-    "reset-filters",
-    "type-filters",
-    "difficulty-legend",
-    "status-text",
-    "active-filters",
-    "problem-list",
-    "empty-state",
+    "type-filter",
+    "exam-list",
+    "exam-eyebrow",
+    "exam-title",
+    "month-tabs",
+    "problem-stack",
+    "splitter-rail",
     "load-error"
   ].forEach((id) => {
     els[toCamel(id)] = document.getElementById(id);
@@ -99,21 +76,13 @@ function bindElements() {
 }
 
 function bindEvents() {
-  els.themeToggle.addEventListener("click", () => {
-    const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-    setTheme(nextTheme);
-  });
-
-  els.filterToggle.addEventListener("click", () => {
-    setFilterPanelOpen(els.filterPanel.hidden);
-  });
+  restorePanelLayout();
+  setupPanelResize();
 
   els.searchInput.addEventListener("input", (event) => {
     state.filters.search = event.target.value.trim().toLowerCase();
     applyFilters();
   });
-
-  els.typeSearch.addEventListener("input", updateTypeChipVisibility);
 
   els.seasonFilter.addEventListener("change", (event) => {
     state.filters.season = event.target.value;
@@ -122,388 +91,378 @@ function bindEvents() {
 
   els.contestFilter.addEventListener("change", (event) => {
     state.filters.contest = event.target.value;
+    if (event.target.value !== "all") state.selectedContest = event.target.value;
     applyFilters();
   });
 
-  els.difficultyFilter.addEventListener("change", (event) => {
-    state.filters.difficulty = event.target.value;
+  els.typeFilter.addEventListener("change", (event) => {
+    state.filters.type = event.target.value;
     applyFilters();
   });
 
-  els.typeMode.addEventListener("change", (event) => {
-    state.filters.typeMode = event.target.value;
-    applyFilters();
-  });
-
-  els.sortOrder.addEventListener("change", (event) => {
-    state.filters.sort = event.target.value;
-    applyFilters();
-  });
-
-  els.resetFilters.addEventListener("click", resetFilters);
-
-  els.typeFilters.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-type]");
+  els.examList.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-exam-key]");
     if (!button) return;
-    toggleType(button.dataset.type);
+    selectExam(button.dataset.examKey);
   });
 
-  els.difficultyLegend.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-level]");
+  els.monthTabs.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-contest]");
     if (!button) return;
-    state.filters.difficulty = state.filters.difficulty === button.dataset.level ? "all" : button.dataset.level;
-    syncControlsFromState();
+    state.selectedContest = button.dataset.contest;
+    state.filters.contest = "all";
+    els.contestFilter.value = "all";
+    renderExamPaper();
+  });
+
+  window.addEventListener("hashchange", () => {
+    syncFromHash();
     applyFilters();
-  });
-
-  els.activeFilters.addEventListener("click", (event) => {
-    const type = event.target.closest("[data-clear-type]");
-    const filter = event.target.closest("[data-clear-filter]");
-    if (type) {
-      state.selectedTypes.delete(type.dataset.clearType);
-      applyFilters();
-    }
-    if (filter) {
-      clearFilter(filter.dataset.clearFilter);
-    }
-  });
-
-  els.problemList.addEventListener("click", (event) => {
-    const tag = event.target.closest("[data-problem-type]");
-    if (!tag) return;
-    toggleType(tag.dataset.problemType);
   });
 }
 
-function buildControls() {
-  fillSelect(els.seasonFilter, "전체", unique(state.problems.map((problem) => problem.season)));
-  fillSelect(els.contestFilter, "전체", contestOptions());
-  fillSelect(
-    els.difficultyFilter,
-    "전체",
-    Object.entries(DIFFICULTIES).map(([level, name]) => ({ value: level, label: `Lv.${level} ${name}` }))
-  );
-
-  const types = sortTypes(unique(state.problems.flatMap((problem) => problem.types)));
-  els.typeFilters.innerHTML = types.map((type) => (
-    `<button class="chip" type="button" data-type="${escapeAttr(type)}">${escapeHtml(type)}</button>`
-  )).join("");
-
-  els.difficultyLegend.innerHTML = Object.entries(DIFFICULTIES).map(([level, name]) => `
-    <button class="difficulty-chip" type="button" data-level="${level}" style="--level-color: var(--level-${level})">
-      <span>Lv.${level}</span>
-      <strong>${escapeHtml(name)}</strong>
-    </button>
-  `).join("");
+function fillControls() {
+  fillSelect(els.seasonFilter, "시즌", unique(state.problems.map((problem) => problem.season)).map((season) => ({
+    value: season,
+    label: formatSeason(season)
+  })));
+  fillSelect(els.contestFilter, "월", ["Dec", "Jan", "Feb"].map((value) => ({ value, label: MONTH_LABELS[value] })));
+  fillSelect(els.typeFilter, "분류", unique(state.problems.flatMap((problem) => problem.types)));
 }
 
-function fillSelect(select, allLabel, values) {
-  select.innerHTML = `<option value="all">${allLabel}</option>` + values.map((item) => {
+function fillSelect(select, label, items) {
+  select.innerHTML = `<option value="all">${escapeHtml(label)}</option>` + items.map((item) => {
     const value = typeof item === "string" ? item : item.value;
-    const label = typeof item === "string" ? item : item.label;
-    return `<option value="${escapeAttr(value)}">${escapeHtml(label)}</option>`;
+    const optionLabel = typeof item === "string" ? item : item.label;
+    return `<option value="${escapeAttr(value)}">${escapeHtml(optionLabel)}</option>`;
   }).join("");
 }
 
 function applyFilters() {
-  const selectedTypes = [...state.selectedTypes];
-
-  state.filtered = state.problems.filter((problem) => {
-    const searchMatches = !state.filters.search || searchableText(problem).includes(state.filters.search);
-    const seasonMatches = state.filters.season === "all" || problem.season === state.filters.season;
-    const contestMatches = state.filters.contest === "all" || problem.contest === state.filters.contest;
-    const difficultyMatches = state.filters.difficulty === "all" || String(problem.difficultyLevel) === state.filters.difficulty;
-    const typeMatches = selectedTypes.length === 0 || (
-      state.filters.typeMode === "and"
-        ? selectedTypes.every((type) => problem.types.includes(type))
-        : selectedTypes.some((type) => problem.types.includes(type))
-    );
-    return searchMatches && seasonMatches && contestMatches && difficultyMatches && typeMatches;
+  state.filteredExams = state.exams.filter((exam) => {
+    const matchesSeason = state.filters.season === "all" || exam.season === state.filters.season;
+    const hasMatchingProblem = exam.problems.some((problem) => {
+      const matchesContest = state.filters.contest === "all" || problem.contest === state.filters.contest;
+      return matchesContest && matchesProblem(problem, exam);
+    });
+    return matchesSeason && hasMatchingProblem;
   });
 
-  sortProblems();
-  renderProblems();
-  updateFilterUi();
-  updateTypeChipVisibility();
-  renderActiveFilters();
+  if (!state.filteredExams.some((exam) => exam.key === state.selectedExamKey)) {
+    state.selectedExamKey = state.filteredExams[0]?.key || "";
+  }
+
+  ensureVisibleContest();
+  updateHash();
+  render();
 }
 
-function searchableText(problem) {
-  return [
-    problem.title,
-    problem.season,
+function render() {
+  renderExamList();
+  renderExamPaper();
+}
+
+function visibleProblems(exam) {
+  if (!exam) return [];
+  const displayContest = state.filters.contest === "all" ? state.selectedContest : state.filters.contest;
+  return exam.problems.filter((problem) => {
+    const matchesContest = problem.contest === displayContest;
+    return matchesContest && matchesProblem(problem, exam);
+  });
+}
+
+function ensureVisibleContest() {
+  const exam = currentExam();
+  if (!exam) return;
+  if (state.filters.contest !== "all") {
+    state.selectedContest = state.filters.contest;
+    return;
+  }
+  const currentHasMatch = exam.problems.some((problem) => (
+    problem.contest === state.selectedContest && matchesProblem(problem, exam)
+  ));
+  if (currentHasMatch) return;
+  state.selectedContest = ["Dec", "Jan", "Feb"].find((contest) => (
+    exam.problems.some((problem) => problem.contest === contest && matchesProblem(problem, exam))
+  )) || "Dec";
+}
+
+function matchesProblem(problem, exam) {
+  const searchText = [
+    exam.label,
+    exam.displayLabel,
+    exam.season,
+    formatSeason(exam.season),
+    exam.contest,
     problem.contest,
-    problem.contestLabel,
-    problem.difficultyName,
+    problem.title,
     problem.source,
     problem.sourceId,
-    problem.url,
-    problem.number,
-    ...problem.types,
-    ...problem.practicePoints
+    ...problem.types
   ].join(" ").toLowerCase();
+  const matchesSearch = !state.filters.search || searchText.includes(state.filters.search);
+  const matchesType = state.filters.type === "all" || problem.types.includes(state.filters.type);
+  return matchesSearch && matchesType;
 }
 
-function sortProblems() {
-  state.filtered.sort((a, b) => {
-    if (state.filters.sort === "difficulty") {
-      return a.difficultyLevel - b.difficultyLevel || a.recommendedOrder - b.recommendedOrder;
-    }
-    if (state.filters.sort === "title") {
-      return a.title.localeCompare(b.title, "en") || a.recommendedOrder - b.recommendedOrder;
-    }
-    if (state.filters.sort === "season") {
-      return seasonKey(a) - seasonKey(b) || a.number - b.number;
-    }
-    return a.recommendedOrder - b.recommendedOrder;
-  });
-}
-
-function seasonKey(problem) {
-  const contestOrder = ["Dec", "Jan", "Feb"];
-  const seasonStart = Number(String(problem.season).slice(0, 4));
-  return seasonStart * 100 + contestOrder.indexOf(problem.contest) * 10 + problem.number;
-}
-
-function renderProblems() {
-  els.problemList.innerHTML = state.filtered.map((problem) => {
-    const level = problem.difficultyLevel;
-    const source = problem.source && problem.sourceId ? `${escapeHtml(problem.source)} #${escapeHtml(problem.sourceId)}` : "";
-    return `
-      <article class="problem-card" style="--level-color: var(--level-${level})">
-        <div class="problem-core">
-          <div class="problem-meta">
-            <span>${escapeHtml(problem.season)}</span>
-            <span>${escapeHtml(problem.contestLabel)}</span>
-            <span>Bronze ${problem.number}</span>
-            ${source ? `<span>${source}</span>` : ""}
-          </div>
-          <h3>
-            <a href="${escapeAttr(problem.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(problem.title)}</a>
-          </h3>
-          <div class="level-pill">
-            <i></i>
-            <span>Lv.${level}</span>
-            <strong>${escapeHtml(problem.difficultyName)}</strong>
-          </div>
-        </div>
-
-        <div class="tag-row">
-          ${problem.types.map((type) => `
-            <button class="tag-button ${state.selectedTypes.has(type) ? "is-active" : ""}" type="button" data-problem-type="${escapeAttr(type)}">${escapeHtml(type)}</button>
-          `).join("")}
-        </div>
-
-        <ul class="practice-list">
-          ${problem.practicePoints.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}
-        </ul>
-      </article>
-    `;
-  }).join("");
-
-  els.emptyState.hidden = state.filtered.length !== 0;
-  els.statusText.textContent = `${state.filtered.length} / ${state.problems.length}`;
-}
-
-function updateFilterUi() {
-  document.querySelectorAll("[data-type]").forEach((button) => {
-    button.classList.toggle("is-active", state.selectedTypes.has(button.dataset.type));
-  });
-  document.querySelectorAll("[data-level]").forEach((button) => {
-    button.classList.toggle("is-active", state.filters.difficulty === button.dataset.level);
-  });
-}
-
-function renderActiveFilters() {
-  const chips = [];
-  if (state.filters.search) chips.push(activeChip(`검색 ${state.filters.search}`, "search"));
-  if (state.filters.season !== "all") chips.push(activeChip(state.filters.season, "season"));
-  if (state.filters.contest !== "all") chips.push(activeChip(state.filters.contest, "contest"));
-  if (state.filters.difficulty !== "all") chips.push(activeChip(`Lv.${state.filters.difficulty}`, "difficulty"));
-  if (state.filters.typeMode !== "or") chips.push(activeChip("AND", "typeMode"));
-  if (state.filters.sort !== "recommended") chips.push(activeChip(selectedText(els.sortOrder), "sort"));
-  [...state.selectedTypes].forEach((type) => {
-    chips.push(`<button class="active-filter" type="button" data-clear-type="${escapeAttr(type)}">${escapeHtml(type)}</button>`);
-  });
-  els.activeFilters.innerHTML = chips.length ? chips.join("") : "필터 없음";
-}
-
-function activeChip(label, filter) {
-  return `<button class="active-filter" type="button" data-clear-filter="${filter}">${escapeHtml(label)}</button>`;
-}
-
-function toggleType(type) {
-  if (state.selectedTypes.has(type)) {
-    state.selectedTypes.delete(type);
-  } else {
-    state.selectedTypes.add(type);
+function renderExamList() {
+  if (!state.filteredExams.length) {
+    els.examList.innerHTML = `<div class="load-fail">조건에 맞는 문제가 없습니다.</div>`;
+    return;
   }
-  applyFilters();
+
+  const html = [];
+  state.filteredExams.forEach((exam) => {
+    const matchingCount = exam.problems.filter((problem) => {
+      const matchesContest = state.filters.contest === "all" || problem.contest === state.filters.contest;
+      return matchesContest && matchesProblem(problem, exam);
+    }).length;
+    const countText = matchingCount === exam.problems.length ? `${exam.problems.length}문제` : `${matchingCount}문제 표시`;
+    html.push(`
+      <button class="exam-button ${exam.key === state.selectedExamKey ? "is-active" : ""}" type="button" data-exam-key="${escapeAttr(exam.key)}">
+        <strong>${escapeHtml(exam.displayLabel)}</strong>
+        <span class="exam-meta">${escapeHtml(countText)} · <b>${escapeHtml(exam.difficultyLabel)}</b></span>
+      </button>
+    `);
+  });
+  els.examList.innerHTML = html.join("");
 }
 
-function clearFilter(filter) {
-  if (filter === "search") state.filters.search = "";
-  if (filter === "season") state.filters.season = "all";
-  if (filter === "contest") state.filters.contest = "all";
-  if (filter === "difficulty") state.filters.difficulty = "all";
-  if (filter === "typeMode") state.filters.typeMode = "or";
-  if (filter === "sort") state.filters.sort = "recommended";
-  syncControlsFromState();
-  applyFilters();
+function renderExamPaper() {
+  const exam = currentExam();
+  if (!exam) {
+    els.examEyebrow.textContent = "Problems";
+    els.examTitle.textContent = "문제가 없습니다";
+    els.monthTabs.innerHTML = "";
+    els.problemStack.innerHTML = "";
+    return;
+  }
+
+  els.examEyebrow.textContent = "문제 목록";
+  els.examTitle.textContent = exam.displayLabel;
+  els.monthTabs.innerHTML = ["Dec", "Jan", "Feb"].map((contest) => `
+    <button class="month-tab ${state.selectedContest === contest ? "is-active" : ""}" type="button" data-contest="${contest}">
+      ${MONTH_LABELS[contest]}
+    </button>
+  `).join("");
+  els.problemStack.innerHTML = visibleProblems(exam).map(renderProblemRow).join("");
 }
 
-function resetFilters() {
-  state.selectedTypes.clear();
-  state.filters = {
-    search: "",
-    season: "all",
-    contest: "all",
-    difficulty: "all",
-    typeMode: "or",
-    sort: "recommended"
-  };
-  syncControlsFromState();
-  applyFilters();
+function renderProblemRow(problem) {
+  const source = problem.source && problem.sourceId ? `${problem.source} #${problem.sourceId}` : problem.source || "";
+  return `
+    <a class="problem-row public-problem-row" href="${escapeAttr(problem.url)}" target="_blank" rel="noopener noreferrer">
+      <span class="problem-row-top">
+        <span class="problem-title">
+          <span>#${problem.number} · ${escapeHtml(source)}</span>
+          <strong>${escapeHtml(problem.title)}</strong>
+        </span>
+        <span class="level-pill">Lv.${problem.difficultyLevel}</span>
+      </span>
+      <span class="tag-row">
+        ${problem.types.map((type) => `<span class="tag">${escapeHtml(type)}</span>`).join("")}
+      </span>
+    </a>
+  `;
 }
 
-function syncControlsFromState() {
-  els.searchInput.value = state.filters.search;
-  els.typeSearch.value = "";
-  els.seasonFilter.value = state.filters.season;
-  els.contestFilter.value = state.filters.contest;
-  els.difficultyFilter.value = state.filters.difficulty;
-  els.typeMode.value = state.filters.typeMode;
-  els.sortOrder.value = state.filters.sort;
+function selectExam(examKey) {
+  const exam = state.filteredExams.find((item) => item.key === examKey);
+  if (!exam) return;
+  state.selectedExamKey = exam.key;
+  state.selectedContest = "Dec";
+  state.filters.contest = "all";
+  els.contestFilter.value = "all";
+  ensureVisibleContest();
+  updateHash();
+  render();
 }
 
-function updateTypeChipVisibility() {
-  const query = els.typeSearch.value.trim().toLowerCase();
-  document.querySelectorAll("[data-type]").forEach((button) => {
-    const matches = !query || button.dataset.type.toLowerCase().includes(query) || state.selectedTypes.has(button.dataset.type);
-    button.hidden = !matches;
+function currentExam() {
+  return state.filteredExams.find((exam) => exam.key === state.selectedExamKey) || state.filteredExams[0];
+}
+
+function buildExams(problems) {
+  const groups = new Map();
+  problems.forEach((problem) => {
+    const key = problem.season;
+    if (!groups.has(key)) {
+      groups.set(key, {
+        key,
+        season: problem.season,
+        contest: "year",
+        label: problem.season,
+        displayLabel: formatSeason(problem.season),
+        problems: []
+      });
+    }
+    groups.get(key).problems.push(problem);
+  });
+
+  return [...groups.values()]
+    .map((exam) => {
+      const sortedProblems = exam.problems.sort((a, b) => {
+        const monthDifference = (MONTH_ORDER[a.contest] ?? 9) - (MONTH_ORDER[b.contest] ?? 9);
+        return monthDifference || a.number - b.number;
+      });
+      const difficultyScore = examDifficultyScore(sortedProblems);
+      return {
+        ...exam,
+        problems: sortedProblems,
+        difficultyScore,
+        difficultyLabel: examDifficultyLabel(difficultyScore)
+      };
+    })
+    .sort((a, b) => examKey(a) - examKey(b));
+}
+
+function examDifficultyScore(problems) {
+  if (!problems.length) return 0;
+  const levels = problems.map((problem) => Number(problem.difficultyLevel) || 1);
+  const average = levels.reduce((sum, level) => sum + level, 0) / levels.length;
+  const peak = Math.max(...levels);
+  return Math.round((average * 0.75 + peak * 0.25) * 10) / 10;
+}
+
+function examDifficultyLabel(score) {
+  if (score <= 3.0) return "쉬움";
+  if (score <= 4.3) return "보통";
+  if (score <= 5.0) return "어려움";
+  return "매우 어려움";
+}
+
+function examKey(exam) {
+  const startYear = Number(String(exam.season).slice(0, 4));
+  return startYear;
+}
+
+function isCurrentProblem(problem) {
+  const seasonStart = Number(String(problem.season).slice(0, 4));
+  return seasonStart >= 2017;
+}
+
+function formatSeason(season) {
+  const value = String(season);
+  const range = value.match(/^20(\d{2})-(\d{2})$/);
+  if (range) return `${range[1]}-${range[2]}`;
+  const singleYear = value.match(/^20(\d{2})$/);
+  if (singleYear) {
+    const start = Number(singleYear[1]);
+    return `${String(start).padStart(2, "0")}-${String((start + 1) % 100).padStart(2, "0")}`;
+  }
+  return value;
+}
+
+function restorePanelLayout() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(LAYOUT_KEY) || "{}");
+    if (Number.isFinite(saved.rail)) setPanelWidth("rail", saved.rail);
+  } catch {
+    localStorage.removeItem(LAYOUT_KEY);
+  }
+}
+
+function setupPanelResize() {
+  setupSplitter(els.splitterRail, "rail");
+}
+
+function setupSplitter(splitter, target) {
+  if (!splitter) return;
+
+  splitter.addEventListener("pointerdown", (event) => {
+    if (window.matchMedia("(max-width: 1180px)").matches) return;
+    event.preventDefault();
+    splitter.setPointerCapture(event.pointerId);
+
+    const startX = event.clientX;
+    const startWidth = panelWidth(target);
+    splitter.classList.add("is-dragging");
+    document.body.classList.add("is-resizing");
+
+    const move = (moveEvent) => {
+      const delta = moveEvent.clientX - startX;
+      setPanelWidth(target, startWidth + delta);
+    };
+
+    const finish = () => {
+      splitter.classList.remove("is-dragging");
+      document.body.classList.remove("is-resizing");
+      savePanelLayout();
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", finish);
+      window.removeEventListener("pointercancel", finish);
+    };
+
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", finish);
+    window.addEventListener("pointercancel", finish);
   });
 }
 
-function selectedText(select) {
-  return select.options[select.selectedIndex]?.textContent || "";
+function panelWidth(target) {
+  const fallback = target === "rail" ? 250 : 320;
+  const value = getComputedStyle(els.deskShell).getPropertyValue(target === "rail" ? "--rail-width" : "--paper-width");
+  const parsed = Number.parseFloat(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
 }
 
-function setFilterPanelOpen(open) {
-  els.filterPanel.hidden = !open;
-  els.appShell.classList.toggle("has-open-filter", open);
-  els.filterToggle.setAttribute("aria-expanded", String(open));
-  els.filterToggle.textContent = open ? "필터 닫기" : "필터 열기";
+function setPanelWidth(target, width) {
+  const shellWidth = els.deskShell.getBoundingClientRect().width;
+  const min = 210;
+  const hardMax = 390;
+  const maxByContent = Math.max(min, shellWidth - 760);
+  const next = Math.round(clamp(width, min, Math.min(hardMax, maxByContent)));
+  els.deskShell.style.setProperty("--rail-width", `${next}px`);
+}
+
+function savePanelLayout() {
+  localStorage.setItem(LAYOUT_KEY, JSON.stringify({ rail: panelWidth("rail") }));
+}
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function withClassification(problem, classification = {}) {
+  return {
+    ...problem,
+    types: classification.types || problem.types || [],
+    difficultyLevel: classification.difficultyLevel || problem.difficultyLevel
+  };
+}
+
+function syncFromHash() {
+  const match = location.hash.match(/^#exam\/(.+)$/);
+  if (!match) return;
+  const examKeyFromHash = decodeURIComponent(match[1]);
+  if (state.exams.some((exam) => exam.key === examKeyFromHash)) {
+    state.selectedExamKey = examKeyFromHash;
+  }
+}
+
+function updateHash() {
+  if (!state.selectedExamKey) return;
+  const nextHash = `#exam/${encodeURIComponent(state.selectedExamKey)}`;
+  if (location.hash !== nextHash) history.replaceState(null, "", nextHash);
 }
 
 function unique(values) {
-  return [...new Set(values)].sort((a, b) => String(a).localeCompare(String(b), "ko", { numeric: true }));
+  return [...new Set(values.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "ko"));
 }
 
-function contestOptions() {
-  const labels = {
-    Dec: "Dec",
-    Jan: "Jan",
-    Feb: "Feb"
-  };
-  const order = ["Dec", "Jan", "Feb"];
-  const available = new Set(state.problems.map((problem) => problem.contest));
-  return order
-    .filter((contest) => available.has(contest))
-    .map((contest) => ({ value: contest, label: labels[contest] }));
-}
-
-function setupTheme() {
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  setTheme(savedTheme === "light" ? "light" : "dark");
-}
-
-function setTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  localStorage.setItem(THEME_KEY, theme);
-  const favicon = document.getElementById("theme-favicon");
-  if (favicon) {
-    favicon.href = FAVICON_BY_THEME[theme] || FAVICON_BY_THEME.dark;
-  }
-  if (els.themeToggle) {
-    els.themeToggle.textContent = theme === "light" ? "다크 모드" : "라이트 모드";
-    els.themeToggle.setAttribute("aria-label", `${theme === "light" ? "다크" : "라이트"} 모드로 전환`);
-  }
-}
-
-function sortTypes(types) {
-  const order = new Map(TYPE_ORDER.map((type, index) => [type, index]));
-  return [...types].sort((a, b) => {
-    const rankA = order.has(a) ? order.get(a) : Number.MAX_SAFE_INTEGER;
-    const rankB = order.has(b) ? order.get(b) : Number.MAX_SAFE_INTEGER;
-    return rankA - rankB || a.localeCompare(b, "ko", { numeric: true });
-  });
-}
-
-function setupStarMap() {
-  const canvas = document.getElementById("star-map");
-  const ctx = canvas.getContext("2d");
-  const stars = Array.from({ length: 96 }, (_, index) => ({
-    x: (Math.sin(index * 33.7) + 1) / 2,
-    y: (Math.cos(index * 19.3) + 1) / 2,
-    r: index % 8 === 0 ? 2.2 : 0.9 + (index % 5) * 0.24,
-    phase: index * 0.7
-  }));
-
-  const resize = () => {
-    canvas.width = window.innerWidth * window.devicePixelRatio;
-    canvas.height = window.innerHeight * window.devicePixelRatio;
-    ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
-  };
-
-  const draw = (time) => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    ctx.clearRect(0, 0, width, height);
-
-    stars.forEach((star, index) => {
-      const isLightTheme = document.documentElement.dataset.theme === "light";
-      const x = star.x * width;
-      const y = star.y * height;
-      const glow = 0.34 + Math.sin(time * 0.002 + star.phase) * 0.16;
-      ctx.beginPath();
-      ctx.arc(x, y, star.r, 0, Math.PI * 2);
-      ctx.shadowBlur = 12;
-      ctx.shadowColor = isLightTheme ? "rgba(43, 102, 192, 0.28)" : "rgba(154, 218, 255, 0.42)";
-      ctx.fillStyle = isLightTheme ? `rgba(43, 102, 192, ${glow * 0.52})` : `rgba(230, 236, 255, ${glow})`;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-
-      if (index % 9 === 0) {
-        const next = stars[(index + 13) % stars.length];
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(next.x * width, next.y * height);
-        ctx.strokeStyle = isLightTheme ? "rgba(43, 102, 192, 0.13)" : "rgba(154, 218, 255, 0.14)";
-        ctx.stroke();
-      }
-    });
-
-    requestAnimationFrame(draw);
-  };
-
-  window.addEventListener("resize", resize);
-  resize();
-  requestAnimationFrame(draw);
-}
-
-function toCamel(id) {
-  return id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+function toCamel(value) {
+  return value.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
 }
 
 function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function escapeAttr(value) {
-  return escapeHtml(value);
+  return escapeHtml(value).replace(/`/g, "&#096;");
 }
