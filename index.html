@@ -6,8 +6,8 @@
     <meta name="description" content="USACO Bronze 문제를 회차별로 탐색하는 Martiny Lab 공개 문제 큐레이션">
     <title>Martin's USACO Space Center</title>
     <link id="theme-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/martiny-symbol-clean-64.png">
-    <link rel="stylesheet" href="style.css?v=20260709-public-6">
-    <script src="app.js?v=20260709-public-6" defer></script>
+    <link rel="stylesheet" href="style.css?v=20260709-public-19">
+    <script src="app.js?v=20260709-public-21" defer></script>
   </head>
   <body>
     <noscript>
@@ -26,25 +26,28 @@
     </header>
 
     <main class="desk-shell public-shell" id="desk-shell">
-      <aside class="exam-rail" aria-label="문제 묶음 선택">
+      <aside class="exam-rail" id="exam-rail" aria-label="문제 묶음 선택">
         <label class="search-box" for="search-input">
           <span>검색</span>
-          <input id="search-input" type="search" placeholder="시즌, 월, 분류">
+          <input id="search-input" type="search" placeholder="문제 제목 또는 번호">
         </label>
 
-        <div class="filter-row">
-          <label class="filter-field">
-            <span>Season</span>
-            <select id="season-filter" aria-label="시즌"></select>
-          </label>
-          <label class="filter-field">
-            <span>Month</span>
-            <select id="contest-filter" aria-label="월"></select>
-          </label>
-          <label class="filter-field filter-field-wide">
-            <span>Algorithm</span>
-            <select id="type-filter" aria-label="알고리즘 분류"></select>
-          </label>
+        <div class="filter-groups">
+          <details class="filter-group">
+            <summary>난이도</summary>
+            <button class="filter-clear" id="difficulty-clear" type="button">초기화</button>
+            <div class="filter-group-body">
+              <div class="filter-chips" id="difficulty-filters"></div>
+            </div>
+          </details>
+
+          <details class="filter-group">
+            <summary>알고리즘</summary>
+            <button class="filter-clear" id="algorithm-clear" type="button">초기화</button>
+            <div class="filter-group-body">
+              <div class="filter-chips algorithm-chips" id="algorithm-filters"></div>
+            </div>
+          </details>
         </div>
 
         <div class="exam-list" id="exam-list"></div>

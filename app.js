@@ -10,7 +10,16 @@ const MONTH_ORDER = {
   Feb: 2
 };
 
-const LAYOUT_KEY = "martins-usaco-public-layout-v1";
+const TAG_GROUPS = [
+  ["풀이 기법", ["완전탐색", "그리디", "동적 계획법", "백트래킹", "이분 탐색", "재귀", "비트마스크", "부분집합 DP"]],
+  ["구현·탐색", ["구현", "시뮬레이션", "정렬", "카운팅", "문자열", "DFS/BFS"]],
+  ["그래프", ["그래프 색칠", "최단 경로", "트리"]],
+  ["구간·수열", ["구간 처리", "누적합", "차분 배열", "투 포인터", "슬라이딩 윈도우"]],
+  ["자료구조", ["배열", "집합", "맵", "해시", "스택/큐", "힙/우선순위 큐"]],
+  ["문제 형태", ["격자", "좌표/기하", "수학/관찰", "게임 이론", "구성"]]
+];
+
+const LAYOUT_KEY = "martins-usaco-public-layout-v3";
 
 const state = {
   problems: [],
@@ -18,11 +27,11 @@ const state = {
   filteredExams: [],
   selectedExamKey: "",
   selectedContest: "Dec",
+  railScrollTopBeforeFilter: null,
   filters: {
     search: "",
-    season: "all",
-    contest: "all",
-    type: "all"
+    levels: new Set(),
+    types: new Set()
   }
 };
 
@@ -59,10 +68,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 function bindElements() {
   [
     "desk-shell",
+    "exam-rail",
     "search-input",
-    "season-filter",
-    "contest-filter",
-    "type-filter",
+    "difficulty-filters",
+    "difficulty-clear",
+    "algorithm-filters",
+    "algorithm-clear",
     "exam-list",
     "exam-eyebrow",
     "exam-title",
@@ -78,25 +89,41 @@ function bindElements() {
 function bindEvents() {
   restorePanelLayout();
   setupPanelResize();
+  preventFilterPointerFocus(els.difficultyFilters);
+  preventFilterPointerFocus(els.algorithmFilters);
 
   els.searchInput.addEventListener("input", (event) => {
     state.filters.search = event.target.value.trim().toLowerCase();
     applyFilters();
   });
 
-  els.seasonFilter.addEventListener("change", (event) => {
-    state.filters.season = event.target.value;
+  els.difficultyFilters.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-level]");
+    if (!button) return;
+    toggleFilter(state.filters.levels, Number(button.dataset.level));
+    button.blur();
+    state.railScrollTopBeforeFilter = 0;
     applyFilters();
   });
 
-  els.contestFilter.addEventListener("change", (event) => {
-    state.filters.contest = event.target.value;
-    if (event.target.value !== "all") state.selectedContest = event.target.value;
+  els.algorithmFilters.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-type]");
+    if (!button) return;
+    toggleFilter(state.filters.types, button.dataset.type);
+    button.blur();
+    state.railScrollTopBeforeFilter = 0;
     applyFilters();
   });
 
-  els.typeFilter.addEventListener("change", (event) => {
-    state.filters.type = event.target.value;
+  els.difficultyClear.addEventListener("click", () => {
+    state.filters.levels.clear();
+    state.railScrollTopBeforeFilter = 0;
+    applyFilters();
+  });
+
+  els.algorithmClear.addEventListener("click", () => {
+    state.filters.types.clear();
+    state.railScrollTopBeforeFilter = 0;
     applyFilters();
   });
 
@@ -110,8 +137,6 @@ function bindEvents() {
     const button = event.target.closest("[data-contest]");
     if (!button) return;
     state.selectedContest = button.dataset.contest;
-    state.filters.contest = "all";
-    els.contestFilter.value = "all";
     renderExamPaper();
   });
 
@@ -121,88 +146,119 @@ function bindEvents() {
   });
 }
 
-function fillControls() {
-  fillSelect(els.seasonFilter, "시즌", unique(state.problems.map((problem) => problem.season)).map((season) => ({
-    value: season,
-    label: formatSeason(season)
-  })));
-  fillSelect(els.contestFilter, "월", ["Dec", "Jan", "Feb"].map((value) => ({ value, label: MONTH_LABELS[value] })));
-  fillSelect(els.typeFilter, "분류", unique(state.problems.flatMap((problem) => problem.types)));
+function preventFilterPointerFocus(container) {
+  container.addEventListener("pointerdown", (event) => {
+    if (!event.target.closest(".filter-chip")) return;
+    state.railScrollTopBeforeFilter = els.examRail?.scrollTop || 0;
+    event.preventDefault();
+  });
 }
 
-function fillSelect(select, label, items) {
-  select.innerHTML = `<option value="all">${escapeHtml(label)}</option>` + items.map((item) => {
-    const value = typeof item === "string" ? item : item.value;
-    const optionLabel = typeof item === "string" ? item : item.label;
-    return `<option value="${escapeAttr(value)}">${escapeHtml(optionLabel)}</option>`;
-  }).join("");
+function fillControls() {
+  const levels = unique(state.problems.map((problem) => Number(problem.difficultyLevel))).sort((a, b) => a - b);
+  const types = unique(state.problems.flatMap((problem) => problem.types));
+  els.difficultyFilters.innerHTML = levels.map((level) => `
+    <button class="filter-chip" type="button" data-level="${level}" aria-pressed="false">Lv.${level}</button>
+  `).join("");
+  els.algorithmFilters.innerHTML = groupedTags(types).map(([label, tags]) => `
+    <div class="algorithm-group">
+      <span>${escapeHtml(label)}</span>
+      <div class="filter-chips">
+        ${tags.map((type) => `
+          <button class="filter-chip" type="button" data-type="${escapeAttr(type)}" aria-pressed="false">${escapeHtml(type)}</button>
+        `).join("")}
+      </div>
+    </div>
+  `).join("");
+}
+
+function toggleFilter(filters, value) {
+  if (filters.has(value)) filters.delete(value);
+  else filters.add(value);
+}
+
+function groupedTags(types) {
+  const available = new Set(types);
+  const groups = TAG_GROUPS
+    .map(([label, tags]) => [label, tags.filter((tag) => available.delete(tag))])
+    .filter(([, tags]) => tags.length);
+  if (available.size) groups.push(["기타", [...available].sort((a, b) => a.localeCompare(b, "ko"))]);
+  return groups;
 }
 
 function applyFilters() {
+  const railScrollTop = state.railScrollTopBeforeFilter ?? els.examRail?.scrollTop ?? 0;
+  state.railScrollTopBeforeFilter = null;
   state.filteredExams = state.exams.filter((exam) => {
-    const matchesSeason = state.filters.season === "all" || exam.season === state.filters.season;
-    const hasMatchingProblem = exam.problems.some((problem) => {
-      const matchesContest = state.filters.contest === "all" || problem.contest === state.filters.contest;
-      return matchesContest && matchesProblem(problem, exam);
-    });
-    return matchesSeason && hasMatchingProblem;
+    return exam.problems.some((problem) => matchesProblem(problem));
   });
 
-  if (!state.filteredExams.some((exam) => exam.key === state.selectedExamKey)) {
-    state.selectedExamKey = state.filteredExams[0]?.key || "";
+  if (state.selectedExamKey && !state.filteredExams.some((exam) => exam.key === state.selectedExamKey)) {
+    state.selectedExamKey = "";
   }
 
-  ensureVisibleContest();
+  if (state.selectedExamKey) ensureVisibleContest();
   updateHash();
   render();
+  restoreRailScroll(railScrollTop);
+}
+
+function restoreRailScroll(scrollTop) {
+  if (!els.examRail) return;
+  const restore = () => {
+    els.examRail.scrollTop = scrollTop;
+  };
+  restore();
+  requestAnimationFrame(() => {
+    restore();
+    requestAnimationFrame(restore);
+  });
 }
 
 function render() {
+  renderFilterControls();
   renderExamList();
   renderExamPaper();
 }
 
 function visibleProblems(exam) {
-  if (!exam) return [];
-  const displayContest = state.filters.contest === "all" ? state.selectedContest : state.filters.contest;
-  return exam.problems.filter((problem) => {
-    const matchesContest = problem.contest === displayContest;
-    return matchesContest && matchesProblem(problem, exam);
-  });
+  if (!exam) return state.problems.filter(matchesProblem);
+  return exam.problems.filter((problem) => problem.contest === state.selectedContest && matchesProblem(problem));
 }
 
 function ensureVisibleContest() {
   const exam = currentExam();
   if (!exam) return;
-  if (state.filters.contest !== "all") {
-    state.selectedContest = state.filters.contest;
-    return;
-  }
   const currentHasMatch = exam.problems.some((problem) => (
-    problem.contest === state.selectedContest && matchesProblem(problem, exam)
+    problem.contest === state.selectedContest && matchesProblem(problem)
   ));
   if (currentHasMatch) return;
   state.selectedContest = ["Dec", "Jan", "Feb"].find((contest) => (
-    exam.problems.some((problem) => problem.contest === contest && matchesProblem(problem, exam))
+    exam.problems.some((problem) => problem.contest === contest && matchesProblem(problem))
   )) || "Dec";
 }
 
-function matchesProblem(problem, exam) {
-  const searchText = [
-    exam.label,
-    exam.displayLabel,
-    exam.season,
-    formatSeason(exam.season),
-    exam.contest,
-    problem.contest,
-    problem.title,
-    problem.source,
-    problem.sourceId,
-    ...problem.types
-  ].join(" ").toLowerCase();
+function matchesProblem(problem) {
+  const searchText = [problem.title, problem.sourceId].join(" ").toLowerCase();
   const matchesSearch = !state.filters.search || searchText.includes(state.filters.search);
-  const matchesType = state.filters.type === "all" || problem.types.includes(state.filters.type);
-  return matchesSearch && matchesType;
+  const matchesLevel = state.filters.levels.size === 0 || state.filters.levels.has(Number(problem.difficultyLevel));
+  const matchesTypes = [...state.filters.types].every((type) => problem.types.includes(type));
+  return matchesSearch && matchesLevel && matchesTypes;
+}
+
+function renderFilterControls() {
+  els.difficultyFilters.querySelectorAll("[data-level]").forEach((button) => {
+    const active = state.filters.levels.has(Number(button.dataset.level));
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  els.algorithmFilters.querySelectorAll("[data-type]").forEach((button) => {
+    const active = state.filters.types.has(button.dataset.type);
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  els.difficultyClear.disabled = state.filters.levels.size === 0;
+  els.algorithmClear.disabled = state.filters.types.size === 0;
 }
 
 function renderExamList() {
@@ -213,15 +269,16 @@ function renderExamList() {
 
   const html = [];
   state.filteredExams.forEach((exam) => {
-    const matchingCount = exam.problems.filter((problem) => {
-      const matchesContest = state.filters.contest === "all" || problem.contest === state.filters.contest;
-      return matchesContest && matchesProblem(problem, exam);
-    }).length;
+    const matchingCount = exam.problems.filter(matchesProblem).length;
     const countText = matchingCount === exam.problems.length ? `${exam.problems.length}문제` : `${matchingCount}문제 표시`;
+    const contestSummary = ["Dec", "Jan", "Feb"]
+      .map((contest) => `${contest} · ${exam.contestDifficulties[contest]?.label || "-"}`)
+      .join(" / ");
     html.push(`
       <button class="exam-button ${exam.key === state.selectedExamKey ? "is-active" : ""}" type="button" data-exam-key="${escapeAttr(exam.key)}">
         <strong>${escapeHtml(exam.displayLabel)}</strong>
-        <span class="exam-meta">${escapeHtml(countText)} · <b>${escapeHtml(exam.difficultyLabel)}</b></span>
+        <span class="exam-meta">${escapeHtml(contestSummary)}</span>
+        ${matchingCount === exam.problems.length ? "" : `<span class="exam-result-count">${escapeHtml(countText)}</span>`}
       </button>
     `);
   });
@@ -231,10 +288,13 @@ function renderExamList() {
 function renderExamPaper() {
   const exam = currentExam();
   if (!exam) {
-    els.examEyebrow.textContent = "Problems";
-    els.examTitle.textContent = "문제가 없습니다";
+    const problems = visibleProblems();
+    els.examEyebrow.textContent = "전체 문제";
+    els.examTitle.textContent = `${problems.length}문제`;
     els.monthTabs.innerHTML = "";
-    els.problemStack.innerHTML = "";
+    els.problemStack.innerHTML = problems.length
+      ? problems.map(renderProblemRow).join("")
+      : `<div class="load-fail">조건에 맞는 문제가 없습니다.</div>`;
     return;
   }
 
@@ -242,10 +302,14 @@ function renderExamPaper() {
   els.examTitle.textContent = exam.displayLabel;
   els.monthTabs.innerHTML = ["Dec", "Jan", "Feb"].map((contest) => `
     <button class="month-tab ${state.selectedContest === contest ? "is-active" : ""}" type="button" data-contest="${contest}">
-      ${MONTH_LABELS[contest]}
+      <span>${MONTH_LABELS[contest]}</span>
+      <small>${escapeHtml(exam.contestDifficulties[contest]?.label || "-")}</small>
     </button>
   `).join("");
-  els.problemStack.innerHTML = visibleProblems(exam).map(renderProblemRow).join("");
+  const problems = visibleProblems(exam);
+  els.problemStack.innerHTML = problems.length
+    ? problems.map(renderProblemRow).join("")
+    : `<div class="load-fail">이 회차에는 조건에 맞는 문제가 없습니다.</div>`;
 }
 
 function renderProblemRow(problem) {
@@ -269,17 +333,15 @@ function renderProblemRow(problem) {
 function selectExam(examKey) {
   const exam = state.filteredExams.find((item) => item.key === examKey);
   if (!exam) return;
-  state.selectedExamKey = exam.key;
+  state.selectedExamKey = state.selectedExamKey === exam.key ? "" : exam.key;
   state.selectedContest = "Dec";
-  state.filters.contest = "all";
-  els.contestFilter.value = "all";
-  ensureVisibleContest();
+  if (state.selectedExamKey) ensureVisibleContest();
   updateHash();
   render();
 }
 
 function currentExam() {
-  return state.filteredExams.find((exam) => exam.key === state.selectedExamKey) || state.filteredExams[0];
+  return state.filteredExams.find((exam) => exam.key === state.selectedExamKey);
 }
 
 function buildExams(problems) {
@@ -306,11 +368,18 @@ function buildExams(problems) {
         return monthDifference || a.number - b.number;
       });
       const difficultyScore = examDifficultyScore(sortedProblems);
+      const contestDifficulties = Object.fromEntries(["Dec", "Jan", "Feb"].map((contest) => {
+        const contestProblems = sortedProblems.filter((problem) => problem.contest === contest);
+        if (!contestProblems.length) return [contest, { score: null, label: "-" }];
+        const score = examDifficultyScore(contestProblems);
+        return [contest, { score, label: examDifficultyLabel(score) }];
+      }));
       return {
         ...exam,
         problems: sortedProblems,
         difficultyScore,
-        difficultyLabel: examDifficultyLabel(difficultyScore)
+        difficultyLabel: examDifficultyLabel(difficultyScore),
+        contestDifficulties
       };
     })
     .sort((a, b) => examKey(a) - examKey(b));
@@ -400,7 +469,7 @@ function setupSplitter(splitter, target) {
 }
 
 function panelWidth(target) {
-  const fallback = target === "rail" ? 250 : 320;
+  const fallback = target === "rail" ? 410 : 320;
   const value = getComputedStyle(els.deskShell).getPropertyValue(target === "rail" ? "--rail-width" : "--paper-width");
   const parsed = Number.parseFloat(value);
   return Number.isFinite(parsed) ? parsed : fallback;
@@ -409,7 +478,7 @@ function panelWidth(target) {
 function setPanelWidth(target, width) {
   const shellWidth = els.deskShell.getBoundingClientRect().width;
   const min = 210;
-  const hardMax = 390;
+  const hardMax = 500;
   const maxByContent = Math.max(min, shellWidth - 760);
   const next = Math.round(clamp(width, min, Math.min(hardMax, maxByContent)));
   els.deskShell.style.setProperty("--rail-width", `${next}px`);
@@ -441,7 +510,10 @@ function syncFromHash() {
 }
 
 function updateHash() {
-  if (!state.selectedExamKey) return;
+  if (!state.selectedExamKey) {
+    if (location.hash) history.replaceState(null, "", `${location.pathname}${location.search}`);
+    return;
+  }
   const nextHash = `#exam/${encodeURIComponent(state.selectedExamKey)}`;
   if (location.hash !== nextHash) history.replaceState(null, "", nextHash);
 }
